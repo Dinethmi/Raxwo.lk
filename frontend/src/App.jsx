@@ -28,6 +28,7 @@ import MyOrdersPage from './pages/MyOrdersPage';
 import SupportCenterPage from './pages/SupportCenterPage';
 import ContactUsPage from './pages/ContactUsPage';
 import AboutUsPage from './pages/AboutUsPage';
+import SignInPage from './pages/SignInPage';
 
 import { CheckCircle2, X } from 'lucide-react';
 
@@ -62,7 +63,8 @@ export default function App() {
     'admin',
     'support',
     'about',
-    'contact'
+    'contact',
+    'signin'
   ];
 
   // Route state
@@ -700,6 +702,18 @@ export default function App() {
               theme={theme}
               onSubmitInquiry={handleSubmitInquiry}
               isSubmitting={isSubmitting}
+            />
+          )}
+
+          {/* 15. DEDICATED SIGN IN & AUTHENTICATION PAGE */}
+          {currentRoute === 'signin' && (
+            <SignInPage
+              theme={theme}
+              onLoginSuccess={(user) => {
+                handleLoginSuccess(user);
+                handleRouteChange(user.role === 'super_admin' || user.role === 'sales_admin' ? 'admin' : 'home');
+              }}
+              onBackToHome={() => handleRouteChange('home')}
             />
           )}
 

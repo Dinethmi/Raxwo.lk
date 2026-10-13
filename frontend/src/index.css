@@ -35,18 +35,18 @@
 /* Light Mode Defaults */
 :root, [data-theme="light"], html.light {
   --bg-page: #f8fafc;
-  --text-main: #0f172a;
-  --text-muted: #64748b;
-  --panel-bg: rgba(255, 255, 255, 0.92);
+  --text-main: #020617;
+  --text-muted: #334155;
+  --panel-bg: rgba(255, 255, 255, 0.96);
   --card-bg: #ffffff;
-  --card-border: #e2e8f0;
+  --card-border: #cbd5e1;
   --grid-line: rgba(15, 23, 42, 0.05);
 }
 
 /* Dark Mode Overrides */
 [data-theme="dark"], html.dark {
   --bg-page: #070913;
-  --text-main: #f8fafc;
+  --text-main: #ffffff;
   --text-muted: #94a3b8;
   --panel-bg: rgba(13, 17, 34, 0.85);
   --card-bg: #0b1022;
@@ -57,6 +57,9 @@
 body {
   background-color: var(--bg-page) !important;
   color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
   transition: background-color 0.25s ease, color 0.25s ease;
 }
 

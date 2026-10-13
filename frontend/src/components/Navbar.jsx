@@ -292,7 +292,10 @@ export default function Navbar({
             </div>
           ) : (
             <button
-              onClick={onOpenAuthModal}
+              onClick={() => {
+                if (onRouteChange) onRouteChange('signin');
+                else onOpenAuthModal();
+              }}
               className="px-4 py-1.5 rounded-lg text-xs font-semibold text-white border border-white/20 hover:border-white/60 hover:bg-white/10 transition-all cursor-pointer shadow-sm"
             >
               Sign In
@@ -359,9 +362,10 @@ export default function Navbar({
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
-                  onOpenAuthModal();
+                  if (onRouteChange) onRouteChange('signin');
+                  else onOpenAuthModal();
                 }}
-                className="w-full py-2 rounded-xl text-xs font-semibold bg-slate-800 text-white border border-slate-700 text-center"
+                className="w-full py-2.5 rounded-xl text-xs font-bold bg-blue-600 hover:bg-blue-500 text-white text-center cursor-pointer shadow-md"
               >
                 {t('signIn')}
               </button>

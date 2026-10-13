@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { X, Lock, Mail, User, Building, Phone, ArrowRight, ShieldCheck, CheckCircle2, AlertCircle } from 'lucide-react';
+import { X, Lock, Mail, User, Building, Phone, ArrowRight, ShieldCheck, CheckCircle2, AlertCircle, Eye, EyeOff, Zap } from 'lucide-react';
 
 export default function AuthModal({ isOpen, onClose, onLoginSuccess, theme = 'dark' }) {
   const [mode, setMode] = useState('login'); // 'login' | 'register'
+  const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -283,20 +284,27 @@ export default function AuthModal({ isOpen, onClose, onLoginSuccess, theme = 'da
           </div>
 
           <div>
-            <label className="block text-xs font-semibold mb-1">Password</label>
+            <label className={`block text-xs font-bold mb-1 ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>Password *</label>
             <div className="relative">
-              <Lock className="w-4 h-4 absolute left-3 top-3 text-slate-400" />
+              <Lock className={`w-4 h-4 absolute left-3 top-3 ${isDark ? 'text-slate-400' : 'text-slate-500'}`} />
               <input
-                type="password"
+                type={showPassword ? 'text' : 'password'}
                 name="password"
                 required
                 placeholder="••••••••"
                 value={formData.password}
                 onChange={handleChange}
-                className={`w-full pl-9 pr-3 py-2 text-sm rounded-xl border focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                  isDark ? 'bg-slate-900/90 border-slate-700 text-white' : 'bg-slate-50 border-slate-300 text-slate-900'
+                className={`w-full pl-9 pr-10 py-2.5 text-sm rounded-xl border focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                  isDark ? 'bg-slate-900/90 border-slate-700 text-white placeholder-slate-500' : 'bg-slate-50 border-slate-300 text-slate-900 placeholder-slate-400'
                 }`}
               />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-3 top-3 text-slate-400 hover:text-white cursor-pointer"
+              >
+                {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+              </button>
             </div>
           </div>
 
