@@ -16,7 +16,8 @@ const productSchema = new mongoose.Schema({
   features: [{ type: String }],
   audience: [{ type: String }],
   techStack: [{ type: String }],
-  demoUrl: { type: String }
+  demoUrl: { type: String },
+  image: { type: String }
 }, {
   timestamps: true
 });

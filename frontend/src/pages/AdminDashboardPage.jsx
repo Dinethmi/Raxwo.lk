@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { 
   BarChart3, Users, DollarSign, ShoppingCart, ShieldCheck, 
   Search, Filter, Plus, CheckCircle2, Clock, FileText, Send, 
-  AlertCircle, ArrowUpRight, ChevronRight, RefreshCw, Eye
+  AlertCircle, ArrowUpRight, ChevronRight, RefreshCw, Eye,
+  Package, Image as ImageIcon, Edit3, X
 } from 'lucide-react';
 
 export default function AdminDashboardPage({ theme = 'dark', currentUser, onLogout }) {
@@ -11,6 +12,9 @@ export default function AdminDashboardPage({ theme = 'dark', currentUser, onLogo
   const [analytics, setAnalytics] = useState(null);
   const [inquiries, setInquiries] = useState([]);
   const [orders, setOrders] = useState([]);
+  const [adminProducts, setAdminProducts] = useState([]);
+  const [editingProduct, setEditingProduct] = useState(null);
+  const [productImageInput, setProductImageInput] = useState('');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [actionSuccess, setActionSuccess] = useState('');
@@ -63,6 +67,15 @@ export default function AdminDashboardPage({ theme = 'dark', currentUser, onLogo
       setAnalytics(dataAnalytics.data);
       setInquiries(dataInquiries.data || []);
       setOrders(dataOrders.data || []);
+
+      // Also fetch products for catalog management
+      try {
+        const resProd = await fetch('/api/products');
+        const dataProd = await resProd.json();
+        if (dataProd.success && dataProd.data) {
+          setAdminProducts(dataProd.data);
+        }
+      } catch (pe) {}
     } catch (err) {
       setError(err.message || 'Error connecting to admin endpoints');
     } finally {
@@ -201,7 +214,8 @@ export default function AdminDashboardPage({ theme = 'dark', currentUser, onLogo
           { id: 'overview', label: 'Platform Analytics', icon: BarChart3 },
           { id: 'crm', label: 'CRM Leads Pipeline', icon: Users, badge: inquiries.length },
           { id: 'quotes', label: 'Quotation Builder', icon: FileText },
-          { id: 'orders', label: 'Orders & Payments', icon: ShoppingCart, badge: orders.length }
+          { id: 'orders', label: 'Orders & Payments', icon: ShoppingCart, badge: orders.length },
+          { id: 'products', label: 'ERP Products & Images', icon: Package, badge: adminProducts.length }
         ].map(tab => {
           const Icon = tab.icon;
           const isActive = activeTab === tab.id;
@@ -626,6 +640,140 @@ export default function AdminDashboardPage({ theme = 'dark', currentUser, onLogo
                 )}
               </tbody>
             </table>
+          </div>
+        </div>
+      )}
+
+      {/* TAB 5: PRODUCTS & ERP IMAGES MANAGEMENT */}
+      {activeTab === 'products' && (
+        <div className="mt-8 space-y-6 animate-fadeIn">
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <div>
+              <h3 className="text-xl font-bold">ERP Solutions Catalog &amp; Image Manager</h3>
+              <p className={`text-xs mt-1 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                Add custom images, update solution metadata, and manage marketplace listings.
+              </p>
+            </div>
+          </div>
+
+          {/* Products Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {adminProducts.map(prod => (
+              <div 
+                key={prod.id} 
+                className={`rounded-2xl border overflow-hidden transition-all ${
+                  isDark ? 'bg-[#0c101d] border-slate-800 hover:border-slate-700' : 'bg-white border-slate-200 shadow-sm'
+                }`}
+              >
+                {/* Image Banner */}
+                <div className="relative w-full h-40 bg-slate-950 overflow-hidden">
+                  <img 
+                    src={prod.image || 'https://images.unsplash.com/photo-1556742049-0a67c5574f73?auto=format&fit=crop&w=800&q=80'} 
+                    alt={prod.name} 
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                  <span className="absolute top-3 right-3 text-[10px] font-bold uppercase px-2.5 py-1 rounded bg-blue-600 text-white">
+                    {prod.category}
+                  </span>
+                  <div className="absolute bottom-2.5 left-3">
+                    <span className="text-white font-extrabold text-base block">{prod.name}</span>
+                    <span className="text-cyan-300 text-xs font-medium">{prod.subtitle}</span>
+                  </div>
+                </div>
+
+                {/* Details & Actions */}
+                <div className="p-4 flex items-center justify-between">
+                  <div>
+                    <span className="text-[10px] text-slate-400 uppercase font-semibold block">Price (LKR)</span>
+                    <span className="text-sm font-bold text-emerald-400">
+                      LKR {Number(prod.priceLKR || 75000).toLocaleString()}
+                    </span>
+                  </div>
+                  <button
+                    onClick={() => {
+                      setEditingProduct(prod);
+                      setProductImageInput(prod.image || '');
+                    }}
+                    className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-blue-600/20 text-blue-400 border border-blue-500/30 hover:bg-blue-600 hover:text-white transition-all flex items-center gap-1.5 cursor-pointer"
+                  >
+                    <Edit3 className="w-3.5 h-3.5" />
+                    <span>Change Image</span>
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Image Edit Modal */}
+      {editingProduct && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-fadeIn">
+          <div className={`w-full max-w-md p-6 rounded-3xl border shadow-2xl ${
+            isDark ? 'bg-[#0e1329] border-slate-700 text-white' : 'bg-white border-slate-200 text-slate-900'
+          }`}>
+            <div className="flex items-center justify-between pb-3 border-b border-slate-700/50 mb-4">
+              <h3 className="text-base font-bold">Update {editingProduct.name} Image</h3>
+              <button 
+                onClick={() => setEditingProduct(null)} 
+                className="text-slate-400 hover:text-white cursor-pointer"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Live Preview */}
+            <div className="w-full h-40 rounded-xl overflow-hidden bg-slate-950 border border-slate-700 mb-4 relative">
+              <img 
+                src={productImageInput || 'https://images.unsplash.com/photo-1556742049-0a67c5574f73?auto=format&fit=crop&w=800&q=80'} 
+                alt="Preview" 
+                className="w-full h-full object-cover" 
+              />
+              <span className="absolute bottom-2 left-2 text-[10px] bg-black/70 text-white px-2 py-0.5 rounded">
+                Live Preview
+              </span>
+            </div>
+
+            <label className="block text-xs font-semibold mb-1">Image URL:</label>
+            <input 
+              type="text"
+              value={productImageInput}
+              onChange={e => setProductImageInput(e.target.value)}
+              placeholder="https://..."
+              className="w-full px-3 py-2 rounded-xl text-xs bg-slate-900 border border-slate-700 text-white mb-4 focus:outline-none focus:border-blue-500"
+            />
+
+            <div className="flex items-center justify-end gap-2 pt-2 border-t border-slate-700/50">
+              <button
+                type="button"
+                onClick={() => setEditingProduct(null)}
+                className="px-4 py-2 rounded-xl text-xs text-slate-400 hover:text-white cursor-pointer"
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                onClick={async () => {
+                  try {
+                    await fetch(`/api/products/${editingProduct.id}`, {
+                      method: 'PUT',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({ image: productImageInput })
+                    });
+                    setAdminProducts(prev => prev.map(p => p.id === editingProduct.id ? { ...p, image: productImageInput } : p));
+                    setActionSuccess(`Image updated for ${editingProduct.name}`);
+                    setTimeout(() => setActionSuccess(''), 2500);
+                    setEditingProduct(null);
+                  } catch (e) {
+                    alert('Error saving image: ' + e.message);
+                  }
+                }}
+                className="px-5 py-2 rounded-xl text-xs font-bold bg-blue-600 hover:bg-blue-500 text-white cursor-pointer"
+              >
+                Save Image
+              </button>
+            </div>
           </div>
         </div>
       )}

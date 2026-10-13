@@ -151,17 +151,19 @@ export default function ProductDetailPage({
           </div>
 
           {/* 3 Checks Highlights */}
-          <div className="flex flex-wrap items-center gap-6 text-xs sm:text-sm text-slate-400">
+          <div className={`flex flex-wrap items-center gap-6 text-xs sm:text-sm ${
+            isDark ? 'text-slate-300' : 'text-slate-600'
+          }`}>
             <div className="flex items-center gap-1.5">
-              <Check className="w-4 h-4 text-cyan-400" />
+              <Check className="w-4 h-4 text-cyan-400 shrink-0" />
               <span>One-time purchase</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <Check className="w-4 h-4 text-cyan-400" />
+              <Check className="w-4 h-4 text-cyan-400 shrink-0" />
               <span>Free setup help</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <Check className="w-4 h-4 text-cyan-400" />
+              <Check className="w-4 h-4 text-cyan-400 shrink-0" />
               <span>Source code included</span>
             </div>
           </div>
@@ -306,6 +308,26 @@ export default function ProductDetailPage({
           </button>
         ))}
       </div>
+
+      {/* Screenshots Tab View */}
+      {activeTab === 'Screenshots' && (
+        <div className="mb-12 animate-fadeIn">
+          <div className={`p-5 sm:p-7 rounded-3xl border overflow-hidden ${
+            isDark ? 'bg-[#0d1226]/90 border-slate-800' : 'bg-white border-slate-200 shadow-xl'
+          }`}>
+            <h4 className={`text-lg font-bold mb-4 ${isDark ? 'text-white' : 'text-slate-900'}`}>
+              {p.name} Production Interface &amp; Live POS Preview
+            </h4>
+            <div className="rounded-2xl overflow-hidden shadow-2xl border border-slate-700/60 max-h-[500px]">
+              <img 
+                src={p.image || 'https://images.unsplash.com/photo-1556742049-0a67c5574f73?auto=format&fit=crop&w=1200&q=80'} 
+                alt={`${p.name} screenshot`} 
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Content Section below Tabs */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">

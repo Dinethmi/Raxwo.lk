@@ -476,6 +476,33 @@ const currencyRates = {
   INR: { symbol: "₹", rate: 0.28, name: "Indian Rupee" }
 };
 
+const defaultProductImages = {
+  mobixa: 'https://images.unsplash.com/photo-1556742049-0a67c5574f73?auto=format&fit=crop&w=800&q=80',
+  gymora: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80',
+  exxplan: 'https://images.unsplash.com/photo-1578916171728-46686eac8d58?auto=format&fit=crop&w=800&q=80',
+  dineflow: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80',
+  pharmacare: 'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=800&q=80',
+  buildtrack: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80',
+  eduportal: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80',
+  swiftlogix: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80',
+  'manufacturing-erp': 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80',
+  'garment-apparel': 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=800&q=80',
+  'auto-spare-parts': 'https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=800&q=80',
+  'hotel-resort-pms': 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80',
+  'hardware-construction': 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80',
+  'microfinance-leasing': 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=800&q=80',
+  'salon-spa-erp': 'https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=800&q=80',
+  'school-institute': 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80',
+  'realestate-rental': 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80',
+  'warehouse-3pl': 'https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=800&q=80'
+};
+
+erpProducts.forEach(p => {
+  if (!p.image && defaultProductImages[p.id]) {
+    p.image = defaultProductImages[p.id];
+  }
+});
+
 let userInquiries = [];
 
 // MongoDB Connection & Seeding
@@ -500,6 +527,10 @@ async function seedProductsIfEmpty() {
     if (count === 0) {
       await Product.insertMany(erpProducts);
       console.log(`[MongoDB] Seeded ${erpProducts.length} ERP products into database.`);
+    } else {
+      for (const [id, img] of Object.entries(defaultProductImages)) {
+        await Product.updateMany({ id, $or: [{ image: null }, { image: { $exists: false } }] }, { $set: { image: img } });
+      }
     }
   } catch (err) {
     console.error('[MongoDB] Error seeding products:', err.message);
@@ -603,6 +634,49 @@ app.get('/api/products', async (req, res) => {
     source: 'in-memory',
     data: filtered
   });
+});
+
+app.put('/api/products/:id', async (req, res) => {
+  const { id } = req.params;
+  const updates = req.body;
+
+  if (isMongoConnected) {
+    try {
+      await Product.findOneAndUpdate(
+        { $or: [{ id: id }, { _id: id.match(/^[0-9a-fA-F]{24}$/) ? id : null }] },
+        { $set: updates },
+        { new: true }
+      );
+    } catch (e) {
+      console.warn('[MongoDB] Update product error:', e.message);
+    }
+  }
+
+  const idx = erpProducts.findIndex(p => p.id === id);
+  if (idx !== -1) {
+    erpProducts[idx] = { ...erpProducts[idx], ...updates };
+    return res.json({ success: true, message: 'Product updated successfully', data: erpProducts[idx] });
+  }
+
+  res.status(404).json({ success: false, message: 'Product not found' });
+});
+
+app.post('/api/products', async (req, res) => {
+  const newProduct = {
+    id: req.body.id || `erp-${Date.now()}`,
+    ...req.body
+  };
+
+  if (isMongoConnected) {
+    try {
+      await Product.create(newProduct);
+    } catch (e) {
+      console.warn('[MongoDB] Create product error:', e.message);
+    }
+  }
+
+  erpProducts.unshift(newProduct);
+  res.status(201).json({ success: true, message: 'Product created successfully', data: newProduct });
 });
 
 let cachedRates = { ...currencyRates };

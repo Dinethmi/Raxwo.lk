@@ -375,11 +375,15 @@ export default function CustomizePage({
             )}
 
             {/* Bottom Actions: Next Step Button (Exact match to Image 4) */}
-            <div className="flex items-center justify-between pt-4 border-t border-slate-800/60">
+            <div className={`flex items-center justify-between pt-4 border-t ${
+              isDark ? 'border-slate-800/60' : 'border-slate-200'
+            }`}>
               {currentStep > 1 ? (
                 <button
                   onClick={() => setCurrentStep(currentStep - 1)}
-                  className="px-5 py-2.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-white cursor-pointer"
+                  className={`px-5 py-2.5 rounded-xl text-xs font-semibold cursor-pointer transition-colors ${
+                    isDark ? 'text-slate-400 hover:text-white' : 'text-slate-600 hover:text-slate-900'
+                  }`}
                 >
                   Back
                 </button>
@@ -424,7 +428,9 @@ export default function CustomizePage({
             </p>
 
             {/* Rows: Selected features & Estimated Total */}
-            <div className="space-y-3 pt-2 border-t border-slate-800/80 mb-6 text-xs">
+            <div className={`space-y-3 pt-2 border-t mb-6 text-xs ${
+              isDark ? 'border-slate-800/80' : 'border-slate-200'
+            }`}>
               <div className="flex items-center justify-between text-slate-400">
                 <span>Selected features</span>
                 <span className={`font-semibold ${isDark ? 'text-white' : 'text-slate-900'}`}>

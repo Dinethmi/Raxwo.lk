@@ -262,20 +262,22 @@ export default function SandboxModal({ isOpen, onClose, initialProduct, theme = 
 
             {/* Recent Transaction Log */}
             <div className={`p-4 rounded-2xl border ${isDark ? 'bg-[#0f1424]/80 border-slate-800/80' : 'bg-slate-50 border-slate-200'}`}>
-              <span className="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-2.5">
+              <span className={`text-xs font-bold uppercase tracking-wider block mb-2.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
                 Audit Trail & Shift Register
               </span>
               <div className="space-y-1.5 max-h-36 overflow-y-auto pr-1">
                 {salesLog.map(tx => (
-                  <div key={tx.id} className="flex items-center justify-between text-xs py-1.5 px-2.5 rounded-lg bg-slate-900/50 border border-slate-800/50">
+                  <div key={tx.id} className={`flex items-center justify-between text-xs py-1.5 px-2.5 rounded-lg border ${
+                    isDark ? 'bg-slate-900/50 border-slate-800/50' : 'bg-white border-slate-200 shadow-sm'
+                  }`}>
                     <div className="flex items-center gap-2">
-                      <span className="font-mono text-cyan-400 font-bold">{tx.id}</span>
-                      <span className="text-slate-400">{tx.time}</span>
-                      <span className="text-slate-400">({tx.itemsCount} items)</span>
+                      <span className="font-mono text-blue-500 font-bold">{tx.id}</span>
+                      <span className={isDark ? 'text-slate-400' : 'text-slate-500'}>{tx.time}</span>
+                      <span className={isDark ? 'text-slate-400' : 'text-slate-500'}>({tx.itemsCount} items)</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <span className="font-bold text-white">LKR {tx.total.toLocaleString()}</span>
-                      <span className="text-[10px] text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded">Settled</span>
+                      <span className={`font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>LKR {tx.total.toLocaleString()}</span>
+                      <span className="text-[10px] text-emerald-500 font-medium bg-emerald-500/10 px-1.5 py-0.5 rounded">Settled</span>
                     </div>
                   </div>
                 ))}
@@ -290,15 +292,15 @@ export default function SandboxModal({ isOpen, onClose, initialProduct, theme = 
             }`}>
               
               <div>
-                <div className="flex items-center justify-between pb-3 border-b border-slate-800">
-                  <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-300">
-                    <ShoppingCart className="w-4 h-4 text-cyan-400" />
+                <div className={`flex items-center justify-between pb-3 border-b ${isDark ? 'border-slate-800' : 'border-slate-200'}`}>
+                  <div className={`flex items-center gap-2 text-xs font-bold uppercase tracking-wider ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
+                    <ShoppingCart className="w-4 h-4 text-blue-500" />
                     <span>Current Sale Bill #0042</span>
                   </div>
                   {cart.length > 0 && (
                     <button 
                       onClick={() => setCart([])}
-                      className="text-[11px] text-red-400 hover:underline cursor-pointer"
+                      className="text-[11px] text-red-500 font-semibold hover:underline cursor-pointer"
                     >
                       Clear
                     </button>
@@ -308,26 +310,28 @@ export default function SandboxModal({ isOpen, onClose, initialProduct, theme = 
                 {/* Cart list */}
                 <div className="mt-3 space-y-2 min-h-40 max-h-56 overflow-y-auto pr-1">
                   {cart.length === 0 ? (
-                    <div className="h-40 flex flex-col items-center justify-center text-slate-500 text-xs text-center px-4">
+                    <div className="h-40 flex flex-col items-center justify-center text-slate-400 text-xs text-center px-4">
                       <ShoppingCart className="w-8 h-8 mb-2 opacity-30" />
                       <span>Select products from the catalog on the left to add to bill</span>
                     </div>
                   ) : (
                     cart.map(c => (
-                      <div key={c.id} className="flex items-center justify-between text-xs p-2 rounded-lg bg-slate-900/60 border border-slate-800">
+                      <div key={c.id} className={`flex items-center justify-between text-xs p-2 rounded-lg border ${
+                        isDark ? 'bg-slate-900/60 border-slate-800' : 'bg-white border-slate-200 shadow-sm'
+                      }`}>
                         <div className="flex-1 pr-2">
-                          <h5 className="font-bold line-clamp-1">{c.name}</h5>
-                          <span className="text-slate-400 text-[11px]">
+                          <h5 className={`font-bold line-clamp-1 ${isDark ? 'text-white' : 'text-slate-900'}`}>{c.name}</h5>
+                          <span className={`text-[11px] ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
                             {c.qty} × LKR {c.price.toLocaleString()}
                           </span>
                         </div>
                         <div className="flex items-center gap-2">
-                          <span className="font-bold text-cyan-400">
+                          <span className="font-bold text-blue-500">
                             LKR {(c.qty * c.price).toLocaleString()}
                           </span>
                           <button
                             onClick={() => removeFromCart(c.id)}
-                            className="text-slate-500 hover:text-red-400 p-1"
+                            className="text-slate-400 hover:text-red-500 p-1 cursor-pointer transition-colors"
                           >
                             <Trash2 className="w-3.5 h-3.5" />
                           </button>
@@ -339,18 +343,20 @@ export default function SandboxModal({ isOpen, onClose, initialProduct, theme = 
               </div>
 
               {/* Bill Totals & Print button */}
-              <div className="pt-4 border-t border-slate-800 mt-4 space-y-2">
-                <div className="flex items-center justify-between text-xs text-slate-400">
+              <div className={`pt-4 border-t mt-4 space-y-2 ${isDark ? 'border-slate-800' : 'border-slate-200'}`}>
+                <div className={`flex items-center justify-between text-xs ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
                   <span>Subtotal:</span>
                   <span>LKR {cartTotal.toLocaleString()}</span>
                 </div>
-                <div className="flex items-center justify-between text-xs text-slate-400">
+                <div className={`flex items-center justify-between text-xs ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
                   <span>RAMIS VAT Exemption (0%):</span>
                   <span>LKR 0</span>
                 </div>
-                <div className="flex items-center justify-between text-base font-extrabold text-white pt-2 border-t border-slate-800/60">
+                <div className={`flex items-center justify-between text-base font-extrabold pt-2 border-t ${
+                  isDark ? 'text-white border-slate-800/60' : 'text-slate-900 border-slate-200'
+                }`}>
                   <span>Bill Total:</span>
-                  <span className="text-cyan-400">LKR {cartTotal.toLocaleString()}</span>
+                  <span className="text-blue-500">LKR {cartTotal.toLocaleString()}</span>
                 </div>
 
                 <button

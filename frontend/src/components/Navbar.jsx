@@ -66,22 +66,18 @@ export default function Navbar({
   };
 
   return (
-    <header className="relative z-50 w-full pt-4 px-6 sm:px-10 lg:px-16 xl:px-20">
-      <nav className="w-full flex items-center justify-between py-3">
+    <header className="relative z-50 w-full pt-3 px-6 sm:px-10 lg:px-16 xl:px-20 bg-[#0c0827]">
+      <nav className="w-full flex items-center justify-between py-2">
         
         {/* Brand Logo */}
         <button 
           onClick={() => onRouteChange && onRouteChange('home')}
-          className={`flex items-center group focus:outline-none cursor-pointer transition-all duration-200 ${
-            isDark 
-              ? '' 
-              : 'bg-[#070913] px-3.5 py-1.5 rounded-xl border border-slate-800 shadow-md hover:border-slate-700'
-          }`}
+          className="flex items-center group focus:outline-none cursor-pointer transition-all duration-200"
         >
           <img 
             src="/raxwo-logo.png" 
             alt="RAXWO - NEXT LEVEL TECH" 
-            className="h-9 sm:h-10 w-auto object-contain transition-transform duration-200 group-hover:scale-[1.02]" 
+            className="h-8 sm:h-9 w-auto object-contain transition-transform duration-200 group-hover:scale-[1.02]" 
           />
         </button>
 
@@ -89,7 +85,7 @@ export default function Navbar({
         <div className={`hidden lg:flex items-center backdrop-blur-md rounded-full px-2.5 py-1.5 transition-colors ${
           isDark 
             ? 'bg-[#0d1226]/80 border border-slate-800/80 shadow-[0_4px_20px_rgba(0,0,0,0.3)]' 
-            : 'bg-[#070913] border border-slate-800 shadow-md'
+            : 'bg-white/90 border border-slate-200/90 shadow-sm'
         }`}>
           {navLinks.map((link) => {
             const isActive = currentRoute === link.route && (!link.hash || link.label === 'Home');
@@ -99,13 +95,19 @@ export default function Navbar({
                 onClick={() => handleLinkClick(link)}
                 className={`px-3.5 py-1.5 text-xs sm:text-sm font-medium rounded-full cursor-pointer transition-all duration-200 flex items-center gap-1.5 ${
                   link.isSpecial 
-                    ? 'bg-purple-600/20 text-purple-300 border border-purple-500/30 hover:bg-purple-600/30 font-semibold'
+                    ? isDark
+                      ? 'bg-purple-600/20 text-purple-300 border border-purple-500/30 hover:bg-purple-600/30 font-semibold'
+                      : 'bg-purple-50 text-purple-700 border border-purple-200 hover:bg-purple-100 font-semibold'
                     : isActive 
-                      ? 'bg-slate-800/90 text-white shadow-sm'
-                      : 'text-slate-300 hover:text-white hover:bg-slate-800/40'
+                      ? isDark
+                        ? 'bg-slate-800/90 text-white shadow-sm'
+                        : 'bg-blue-600 text-white shadow-sm shadow-blue-500/25 font-semibold'
+                      : isDark
+                        ? 'text-slate-300 hover:text-white hover:bg-slate-800/40'
+                        : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                 }`}
               >
-                {link.isSpecial && <ShieldCheck className="w-3.5 h-3.5 text-purple-400" />}
+                {link.isSpecial && <ShieldCheck className={`w-3.5 h-3.5 ${isDark ? 'text-purple-400' : 'text-purple-600'}`} />}
                 <span>{link.label}</span>
               </button>
             );
@@ -291,9 +293,9 @@ export default function Navbar({
           ) : (
             <button
               onClick={onOpenAuthModal}
-              className="px-4 py-1.5 rounded-full text-xs font-semibold bg-blue-600/10 hover:bg-blue-600 text-blue-400 hover:text-white border border-blue-500/40 cursor-pointer transition-all shadow-sm"
+              className="px-4 py-1.5 rounded-lg text-xs font-semibold text-white border border-white/20 hover:border-white/60 hover:bg-white/10 transition-all cursor-pointer shadow-sm"
             >
-              {t('signIn')}
+              Sign In
             </button>
           )}
         </div>
