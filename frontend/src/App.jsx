@@ -700,6 +700,7 @@ export default function App() {
           {currentRoute === 'contact' && (
             <ContactUsPage
               theme={theme}
+              lang={lang}
               onSubmitInquiry={handleSubmitInquiry}
               isSubmitting={isSubmitting}
             />
