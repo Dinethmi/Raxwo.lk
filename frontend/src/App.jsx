@@ -691,6 +691,7 @@ export default function App() {
           {currentRoute === 'about' && (
             <AboutUsPage
               theme={theme}
+              lang={lang}
               onExploreProducts={() => handleRouteChange('products')}
               onContactClick={() => handleRouteChange('contact')}
             />

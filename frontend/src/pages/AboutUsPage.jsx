@@ -2,253 +2,315 @@ import React from 'react';
 import { 
   ShieldCheck, 
   Users, 
-  Code2, 
-  Headphones, 
   Sparkles, 
   CheckCircle2, 
   ArrowRight,
-  Award,
-  Zap,
-  Globe2,
-  Building2,
+  Clock, 
+  MapPin, 
+  Check,
+  Printer,
+  WifiOff,
+  HeartHandshake,
+  Store,
   Laptop,
-  Layers,
-  Clock,
-  TrendingUp,
-  MapPin,
-  Check
+  MessageSquare,
+  HelpCircle
 } from 'lucide-react';
 
 export default function AboutUsPage({
   theme = 'dark',
+  lang = 'en',
   onExploreProducts,
   onContactClick
 }) {
   const isDark = theme === 'dark';
+  const isSi = lang === 'si';
 
+  // 4 Core Numbers (Simplified & Clear)
   const stats = [
-    { value: '500+', label: 'Businesses Automated', desc: 'Across Sri Lanka, UAE & Maldives' },
-    { value: '18+', label: 'Ready-Made ERP Systems', desc: 'Instant deployment within 48 hours' },
-    { value: '100%', label: 'Source Code Ownership', desc: 'Zero monthly SaaS seat fees' },
-    { value: '99.9%', label: 'System Uptime & SLA', desc: 'Offline-first failover reliability' }
+    { 
+      value: '500+', 
+      label: isSi ? 'සාර්ථක දේශීය ව්‍යාපාර' : 'Happy Businesses', 
+      desc: isSi ? 'සුපිරි වෙළඳසැල්, හෝටල්, ෆාමසි හා ආයතන' : 'Supermarkets, stores & restaurants across Sri Lanka' 
+    },
+    { 
+      value: '14+', 
+      label: isSi ? 'සූදානම් මෘදුකාංග පද්ධති' : 'Ready Business Systems', 
+      desc: isSi ? 'ඕනෑම ව්‍යාපාරයකට ගැළපෙන විසඳුම්' : 'Tailored ERP & POS systems ready to deploy' 
+    },
+    { 
+      value: 'Rs. 0', 
+      label: isSi ? 'මාසික බිල්පත් ගාස්තු නෑ' : 'Zero Monthly Fees', 
+      desc: isSi ? 'එක්වරක් පමණයි ගෙවන්නේ (Pay Once, Own Forever)' : 'Pay once, own the software permanently' 
+    },
+    { 
+      value: '15 Min', 
+      label: isSi ? 'ඉගෙනීමට ගතවන කාලය' : 'Quick Staff Training', 
+      desc: isSi ? 'ඕනෑම කෙනෙකුට විනාඩි 15න් හුරු විය හැක' : 'Simple interface designed for any age' 
+    }
   ];
 
-  const coreValues = [
+  // 4 Simple Pillars (What makes Raxwo special)
+  const features = [
     {
       icon: ShieldCheck,
       color: 'blue',
-      title: 'Full Source Code Ownership',
-      desc: 'We never lock you into monthly user seat subscriptions. When you purchase a Raxwo ERP, you receive 100% full, unminified source code and perpetual rights.'
+      badge: isSi ? 'ස්ථිර අයිතිය' : '100% OWNERSHIP',
+      title: isSi ? 'මාසික බිල්පත් ගෙවන්න ඕනෙ නෑ' : 'No Monthly Software Subscriptions',
+      desc: isSi 
+        ? 'වෙනත් මෘදුකාංග වලට මසකට රු. 10,000 - 30,000ක් නිකරුණේ ගෙවන්න වෙනවා. Raxwo වලදී ඔබ ගෙවන්නේ එක් වරක් පමණි. මෘදුකාංගය සදහටම ඔබට හිමිවේ.'
+        : 'Most software companies charge you every single month just to use the system. With Raxwo, you pay once and it is yours forever. No hidden fees or recurring deductions.'
     },
     {
-      icon: Code2,
+      icon: WifiOff,
       color: 'emerald',
-      title: 'Engineered for Local Compliance',
-      desc: 'Built specifically for Sri Lankan commerce: RAMIS tax guidelines, VAT 18%, SSCL 2.5%, ESC/POS thermal printers, weighing scales, and tri-lingual interfaces (Sinhala, Tamil, English).'
+      badge: isSi ? 'නොනවතින සේවය' : 'WORKS OFFLINE',
+      title: isSi ? 'ඉන්ටනෙට් නැතත් බිල් ගහන්න පුළුවන්' : 'Keeps Running Even Without Internet',
+      desc: isSi 
+        ? 'වැස්සකට හෝ විදුලි විසන්ධි වීමකදී අන්තර්ජාලය නැති වුණත් බිල්පත් ගැසීම කිසි විටෙකත් නතර නොවේ. නැවත ඉන්ටනෙට් ආ විට සියල්ල ස්වයංක්‍රීයව Sync වේ.'
+        : 'Rain, power cuts, or Wi-Fi disconnection will never stop your cashiers. Raxwo works seamlessly offline and automatically syncs sales when the connection returns.'
     },
     {
       icon: Users,
       color: 'purple',
-      title: 'User-Friendly for Every Age',
-      desc: 'Software shouldn\'t require an IT degree. Our interfaces are designed so a cashier or warehouse staff member can master billing and stock transfer in less than 30 minutes.'
+      badge: isSi ? 'අතිශය සරලයි' : 'SUPER SIMPLE',
+      title: isSi ? 'ලොකු පොඩි ඕනෑම කෙනෙකුට පහසුයි' : 'Designed So Anyone Can Use It Easily',
+      desc: isSi 
+        ? 'පරිගණක දැනුමක් අවශ්‍යම නෑ. ලොකු අකුරු, පැහැදිලි බොත්තම් සහ සිංහල භාෂාවෙන් ක්‍රියාත්මක වන නිසා විනාඩි 15ක් ඇතුළත ඕනෑම කෙනෙකුට බිල්පත් ගසන්න හුරු විය හැක.'
+        : 'You do not need an IT degree. Clear buttons, touch-screen friendly screens, and Sinhala/Tamil/English options allow cashiers to learn everything in just 15 minutes.'
     },
     {
-      icon: Headphones,
+      icon: HeartHandshake,
       color: 'cyan',
-      title: 'Dedicated Sri Lankan Tech Support',
-      desc: 'Direct hotline and WhatsApp support from local software engineers who understand your actual daily business workflows and hardware equipment.'
+      badge: isSi ? 'සුහදශීලී සහාය' : 'LOCAL SUPPORT',
+      title: isSi ? 'අපේම ශ්‍රී ලාංකීය ඉංජිනේරු සහාය' : 'Friendly Sri Lankan WhatsApp & Phone Care',
+      desc: isSi 
+        ? 'විදේශීය රොබෝ පිළිතුරු නෑ. කොළඹ පිහිටි අපගේ ඉංජිනේරු කණ්ඩායම WhatsApp හෝ දුරකථනයෙන් සෘජුවම සම්බන්ධ වී ඔබට සහාය ලබාදේ.'
+        : 'No frustrating foreign automated hotlines. When you need help, our Colombo engineering team connects directly via WhatsApp or phone to resolve any questions instantly.'
     }
   ];
 
+  // How It Works in 4 Easy Steps
+  const steps = [
+    {
+      num: '1',
+      title: isSi ? 'ව්‍යාපාරික පද්ධතිය තෝරන්න' : 'Choose Your Business System',
+      desc: isSi 
+        ? 'සිල්ලර කඩ, සුපිරි වෙළඳසැල්, හෝටල්, ෆාමසි, වාහන අමතර කොටස් හෝ බෙදාහැරීම් සඳහා ගැළපෙන පද්ධතිය තෝරන්න.' 
+        : 'Pick the software designed for your store — Retail POS, Restaurant, Pharmacy, Wholesale, or Workshop.'
+    },
+    {
+      num: '2',
+      title: isSi ? 'පරිගණක හා ප්‍රින්ටර් සම්බන්ධ කිරීම' : 'Connect Your Hardware & Printers',
+      desc: isSi 
+        ? 'ඔබ සතු EPSON, Xprinter බිල්පත් ප්‍රින්ටර්, බාර්කෝඩ් ස්කෑනර් සහ මුදල් පෙට්ටිය අපි නොමිලේම සකස් කර දෙන්නෙමු.' 
+        : 'We connect your receipt printer, barcode scanner, and cash drawer — plug-and-play with zero hassle.'
+    },
+    {
+      num: '3',
+      title: isSi ? 'කාර්ය මණ්ඩලයට නොමිලේ පුහුණුව' : 'Free Training for Your Staff',
+      desc: isSi 
+        ? 'මුදල් අයකැමි සහ කළමනාකාරීත්වයට බිල් ගැසීම, තොග පරීක්ෂාව සහ ලාභ ගණනය කිරීම පියවරෙන් පියවර කියාදෙන්නෙමු.' 
+        : 'We teach your cashiers and managers how to bill, count stock, and check daily profits with confidence.'
+    },
+    {
+      num: '4',
+      title: isSi ? 'සාර්ථකව ව්‍යාපාරය දියුණු කරන්න' : 'Start Selling & Grow Happily',
+      desc: isSi 
+        ? 'කිසිදු මාසික බිල්පත් බියකින් තොරව, ජීවිත කාලයටම හිමි පද්ධතියක් සමඟින් ඔබේ වෙළඳසැල වේගයෙන් ඉදිරියට ගෙන යන්න.' 
+        : 'Enjoy lifetime ownership with 100% peace of mind and lifetime local software support.'
+    }
+  ];
+
+  // Leadership Team (Friendly & Compact)
   const leadershipTeam = [
     {
       name: 'Dr. Rohan Jayasinghe',
-      role: 'Chief Technology Officer & Co-Founder',
-      experience: '14+ Years in Enterprise Architecture',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80',
-      bio: 'Former principal architect for regional telecom & banking platforms. Leads Raxwo core ERP engine and security framework.'
+      role: isSi ? 'ප්‍රධාන තාක්ෂණික ඉංජිනේරු (CTO)' : 'Chief Technology Officer',
+      focus: isSi ? 'පද්ධති ක්‍රියාකාරීත්වය හා ආරක්ෂාව' : 'Core ERP Architecture & Speed',
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80'
     },
     {
       name: 'Dineli Senanayake',
-      role: 'Head of Product Design & Human UX',
-      experience: 'Ex-Silicon Valley Design Specialist',
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80',
-      bio: 'Obsessed with simplicity and fast keyboard navigation for cashiers, doctors, and multi-store warehouse managers.'
+      role: isSi ? 'පරිශීලක අතුරුමුහුණත් නිර්මාණ ප්‍රධානී (UX)' : 'Head of User Experience (UX)',
+      focus: isSi ? 'ඕනෑම කෙනෙකුට සරලව භාවිත කළ හැකි සැලසුම්' : 'Designing Easy Screens for Cashiers',
+      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80'
     },
     {
       name: 'Kaveen Fernando',
-      role: 'Head of Hardware & POS Integrations',
-      experience: '10+ Years in Retail Automation',
-      image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80',
-      bio: 'Master of ESC/POS thermal protocols, serial scale communication, and barcode scanner drivers for all global printer models.'
+      role: isSi ? 'දෘඩාංග හා ප්‍රින්ටර් විශේෂඥ (POS)' : 'Head of POS & Hardware Systems',
+      focus: isSi ? 'රිසිට්පත් ප්‍රින්ටර් හා ස්කෑනර් සම්බන්ධතා' : 'Receipt Printers & Barcode Scanners',
+      image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80'
     },
     {
       name: 'Natasha Perera',
-      role: 'Director of Customer Operations & SLA',
-      experience: 'Enterprise Client Success Lead',
-      image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80',
-      bio: 'Ensures every business deployment goes live within 48 hours with on-site or remote staff training workshops.'
-    }
-  ];
-
-  const milestones = [
-    {
-      year: '2021',
-      title: 'Founded in Colombo',
-      desc: 'Launched with a single mission: free local business owners from expensive foreign SaaS subscriptions with battle-tested retail software.'
-    },
-    {
-      year: '2023',
-      title: '10+ Production-Ready ERPs',
-      desc: 'Expanded into specialized sectors including Mobile Phone & Repair (Mobixa), Multi-Branch Restaurants (DineFlow), and Wholesale (Exxplan).'
-    },
-    {
-      year: '2025',
-      title: '500+ Clients & RAMIS Tax Engine',
-      desc: 'Built built-in compliance for Sri Lanka Inland Revenue RAMIS requirements and introduced live offline-to-cloud automatic synchronization.'
-    },
-    {
-      year: '2026',
-      title: 'Raxwo Next Level Tech Marketplace',
-      desc: 'Pioneered the transparent one-time purchase ERP marketplace, giving enterprise customers full source code ownership and unlimited scaling.'
+      role: isSi ? 'පාරිභෝගික සත්කාරක ප්‍රධානී' : 'Director of Customer Care & Training',
+      focus: isSi ? 'කාර්ය මණ්ඩල පුහුණුව හා WhatsApp සහාය' : 'Client Onboarding & 24/7 Helpline',
+      image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80'
     }
   ];
 
   return (
-    <div className={`w-full pt-8 pb-32 transition-colors ${isDark ? 'text-white' : 'text-slate-900'}`}>
+    <div className={`w-full pt-4 sm:pt-6 pb-28 transition-colors overflow-hidden ${
+      isDark ? 'text-white bg-[#080b18]' : 'text-slate-900 bg-slate-50/70'
+    }`}>
       
-      {/* 1. HERO SECTION WITH HIGH-IMPACT VISUALS */}
-      <section className="w-full px-6 sm:px-10 lg:px-16 xl:px-20 mb-20">
-        
-        {/* Breadcrumb / Top Tag */}
-        <div className="flex items-center gap-2 mb-4">
-          <span className={`text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full border ${
-            isDark 
-              ? 'text-cyan-400 bg-cyan-950/40 border-cyan-800/50' 
-              : 'text-blue-700 bg-blue-50 border-blue-200'
-          }`}>
-            ABOUT RAXWO GLOBAL SOFTWARE &amp; DIGITAL SOLUTIONS
-          </span>
-        </div>
+      {/* 1. TOP HERO SECTION */}
+      <section className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 mb-12 sm:mb-16">
+        <div className="max-w-5xl mx-auto text-center">
+          
+          {/* Pill Tag */}
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold mb-4 border shadow-sm backdrop-blur-md bg-blue-500/10 text-blue-500 border-blue-500/30">
+            <Sparkles className="w-3.5 h-3.5 text-blue-500" />
+            <span>
+              {isSi ? 'RAXWO ගැන සරලව • අපගේ කතාව' : 'ABOUT RAXWO • HONEST BUSINESS SOFTWARE'}
+            </span>
+          </div>
 
-        {/* Hero Title & Mission Statement */}
-        <div className="max-w-4xl">
-          <h1 className={`text-3xl sm:text-4xl md:text-5xl lg:text-[44px] font-extrabold tracking-tight leading-[1.25] mb-6 ${
+          {/* Clean Main Title */}
+          <h1 className={`text-3xl sm:text-4xl md:text-5xl font-black tracking-tight mb-4 leading-tight ${
             isDark ? 'text-white' : 'text-slate-950'
           }`}>
-            Empowering Modern Businesses with{' '}
-            <span className="text-[#0094ff]">
-              Lifetime Software Ownership
+            {isSi ? 'ඔබගේ ව්‍යාපාරයට සරල හා විශ්වාසනීය' : 'Simple, Reliable Software That You'}{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-indigo-500 to-cyan-400">
+              {isSi ? 'එක්වරක් පමණක් ගෙවන මෘදුකාංග' : 'Truly Own Forever'}
             </span>
           </h1>
-          <p className={`text-base sm:text-lg lg:text-xl leading-relaxed ${
+
+          {/* Simple, Readable Subtitle for Everyone */}
+          <p className={`text-sm sm:text-base lg:text-lg max-w-3xl mx-auto leading-relaxed ${
             isDark ? 'text-slate-300' : 'text-slate-700'
           }`}>
-            We bridge the gap between rigid, overpriced SaaS subscriptions and chaotic spreadsheets. At Raxwo, we engineer production-ready, customizable ERP systems that you own forever — with 100% full source code, zero monthly seat taxes, and dedicated Sri Lankan technical support.
+            {isSi
+              ? 'අපගේ අරමුණ වන්නේ සිල්ලර කඩ, සුපිරි වෙළඳසැල්, ආපනශාලා හෝ කර්මාන්තශාලා පවත්වාගෙන යන ඕනෑම කෙනෙකුට මාසික ගාස්තු හෝ පරිගණක ගැටලු නැතිව, පහසුවෙන් බිල්පත් ගසමින් ව්‍යාපාරය දියුණු කරගැනීමට අවශ්‍ය මෘදුකාංග සාධාරණ මිලකට ලබාදීමයි.'
+              : 'At Raxwo, we believe software should be simple, honest, and affordable. We build modern retail and business management systems that you pay for once and own permanently — with zero monthly fees, full offline reliability, and friendly Sri Lankan support.'}
           </p>
+
+          {/* 3 Quick Simple Value Badges */}
+          <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-4 mt-6 text-xs font-semibold">
+            <div className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border ${
+              isDark ? 'bg-slate-900/80 border-slate-800 text-slate-200' : 'bg-white border-slate-200 text-slate-800 shadow-sm'
+            }`}>
+              <Check className="w-3.5 h-3.5 text-emerald-500 font-bold" />
+              <span>{isSi ? 'මාසික ගාස්තු නෑ (One-Time Purchase)' : 'Pay Once, Keep Forever'}</span>
+            </div>
+            <div className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border ${
+              isDark ? 'bg-slate-900/80 border-slate-800 text-slate-200' : 'bg-white border-slate-200 text-slate-800 shadow-sm'
+            }`}>
+              <Check className="w-3.5 h-3.5 text-blue-500 font-bold" />
+              <span>{isSi ? 'ඉන්ටනෙට් නැතත් බිල්පත් මුද්‍රණය' : 'Works 100% Offline'}</span>
+            </div>
+            <div className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border ${
+              isDark ? 'bg-slate-900/80 border-slate-800 text-slate-200' : 'bg-white border-slate-200 text-slate-800 shadow-sm'
+            }`}>
+              <Check className="w-3.5 h-3.5 text-purple-500 font-bold" />
+              <span>{isSi ? 'විනාඩි 15න් හුරු විය හැකි සරල ක්‍රමය' : '15-Minute Staff Training'}</span>
+            </div>
+          </div>
+
         </div>
 
-        {/* Hero Image Showcase Grid (3 stunning photography cards) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mt-12 items-stretch">
-          
-          {/* Main Large Photo: Engineering Team in Action */}
-          <div className="lg:col-span-7 relative rounded-3xl overflow-hidden shadow-2xl border min-h-[380px] lg:min-h-[460px] group border-slate-700/60">
-            <img 
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" 
-              alt="Raxwo Engineering Team in Colombo"
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+        {/* ========================================================
+            BALANCED, NEAT, MODERATE-SIZED PHOTO STRIP (3 CARDS)
+            Replaces the oversized, ugly towering images
+           ======================================================== */}
+        <div className="max-w-5xl mx-auto mt-10">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
             
-            {/* Overlay Badge & Location */}
-            <div className="absolute top-5 left-5">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-slate-900/90 text-white border border-slate-700 backdrop-blur-md shadow-lg">
-                <MapPin className="w-3.5 h-3.5 text-red-400" />
-                <span>Level 05, Raxwo Tech Tower, Colombo 03</span>
-              </span>
-            </div>
-
-            {/* Bottom Card Overlay Caption */}
-            <div className="absolute bottom-6 left-6 right-6">
-              <span className="text-xs font-bold uppercase tracking-wider text-cyan-400 block mb-1">
-                OUR ENGINEERING CULTURE
-              </span>
-              <h3 className="text-xl sm:text-2xl font-black text-white drop-shadow-md">
-                Built by Developers Who Care About Real Business Realities
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-200 mt-1.5 line-clamp-2">
-                Every ERP in our catalog is battle-tested in live supermarkets, repair centers, and factories before being released to our marketplace.
-              </p>
-            </div>
-          </div>
-
-          {/* Right 2 Stacked Photo Cards */}
-          <div className="lg:col-span-5 flex flex-col gap-6">
-            
-            {/* Top Right Card: Modern Office & Client Meeting */}
-            <div className="relative rounded-3xl overflow-hidden shadow-xl border flex-1 min-h-[210px] group border-slate-700/60">
-              <img 
-                src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" 
-                alt="Raxwo Executive Boardroom"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
-              
-              <div className="absolute bottom-4 left-5 right-5">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-400 block">
-                  CLIENT PARTNERSHIP
-                </span>
-                <h4 className="text-base font-bold text-white">
-                  Direct In-Person & Remote Consultations
-                </h4>
-                <p className="text-xs text-slate-300 mt-0.5">
-                  We walk through your counter and warehouse operations before recommending any solution.
-                </p>
+            {/* Card 1: Our Friendly Development Team */}
+            <div className={`rounded-2xl border overflow-hidden transition-all duration-300 group shadow-md hover:shadow-xl ${
+              isDark ? 'bg-[#0a0f24] border-slate-800' : 'bg-white border-slate-200'
+            }`}>
+              <div className="relative w-full h-44 sm:h-48 overflow-hidden bg-slate-900">
+                <img 
+                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" 
+                  alt="Raxwo Software Team Colombo"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  onError={(e) => {
+                    e.currentTarget.src = "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80";
+                  }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent"></div>
+                <div className="absolute bottom-2.5 left-3 right-3 text-white">
+                  <span className="text-[10px] font-extrabold uppercase tracking-wider text-cyan-400 block">
+                    {isSi ? 'අපගේ ඉංජිනේරු කණ්ඩායම' : 'COLOMBO TECH LAB'}
+                  </span>
+                  <h4 className="text-xs sm:text-sm font-bold truncate">
+                    {isSi ? 'කොළඹ ප්‍රධාන තාක්ෂණික මධ්‍යස්ථානය' : 'Local Software Engineers'}
+                  </h4>
+                </div>
               </div>
             </div>
 
-            {/* Bottom Right Card: Technical Architecture */}
-            <div className="relative rounded-3xl overflow-hidden shadow-xl border flex-1 min-h-[210px] group border-slate-700/60">
-              <img 
-                src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80" 
-                alt="Software Architecture and Code Review"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
-              
-              <div className="absolute bottom-4 left-5 right-5">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-purple-400 block">
-                  CLEAN CODE STANDARDS
-                </span>
-                <h4 className="text-base font-bold text-white">
-                  Modern React, Node.js &amp; PostgreSQL Stack
-                </h4>
-                <p className="text-xs text-slate-300 mt-0.5">
-                  Unminified, modular code that your in-house engineers can easily maintain and extend.
-                </p>
+            {/* Card 2: Hardware & POS Testing Bench */}
+            <div className={`rounded-2xl border overflow-hidden transition-all duration-300 group shadow-md hover:shadow-xl ${
+              isDark ? 'bg-[#0a0f24] border-slate-800' : 'bg-white border-slate-200'
+            }`}>
+              <div className="relative w-full h-44 sm:h-48 overflow-hidden bg-slate-900">
+                <img 
+                  src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&w=600&q=80" 
+                  alt="POS Hardware and Receipt Printers"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  onError={(e) => {
+                    e.currentTarget.src = "https://images.unsplash.com/photo-1556742031-c6961e8560b0?auto=format&fit=crop&w=600&q=80";
+                  }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent"></div>
+                <div className="absolute bottom-2.5 left-3 right-3 text-white">
+                  <span className="text-[10px] font-extrabold uppercase tracking-wider text-emerald-400 block">
+                    {isSi ? 'දෘඩාංග පරීක්ෂණාගාරය' : 'HARDWARE TEST BENCH'}
+                  </span>
+                  <h4 className="text-xs sm:text-sm font-bold truncate">
+                    {isSi ? 'ප්‍රින්ටර් හා ස්කෑනර් අනුකූලතාව' : 'Printers & Scanner Testing'}
+                  </h4>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 3: Real Stores & Happy Cashiers */}
+            <div className={`rounded-2xl border overflow-hidden transition-all duration-300 group shadow-md hover:shadow-xl ${
+              isDark ? 'bg-[#0a0f24] border-slate-800' : 'bg-white border-slate-200'
+            }`}>
+              <div className="relative w-full h-44 sm:h-48 overflow-hidden bg-slate-900">
+                <img 
+                  src="https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&w=600&q=80" 
+                  alt="Real Retail Stores & Friendly Staff"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  onError={(e) => {
+                    e.currentTarget.src = "https://images.unsplash.com/photo-1556742111-a301076d9d18?auto=format&fit=crop&w=600&q=80";
+                  }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent"></div>
+                <div className="absolute bottom-2.5 left-3 right-3 text-white">
+                  <span className="text-[10px] font-extrabold uppercase tracking-wider text-purple-400 block">
+                    {isSi ? 'වෙළඳසැල් මෙහෙයුම්' : 'REAL STORE WORKFLOWS'}
+                  </span>
+                  <h4 className="text-xs sm:text-sm font-bold truncate">
+                    {isSi ? 'පාරිභෝගිකයන්ට වේගවත් සේවයක්' : 'Fast Checkout & Happy Clients'}
+                  </h4>
+                </div>
               </div>
             </div>
 
           </div>
-
         </div>
 
       </section>
 
-      {/* 2. STATS STRIP SECTION */}
-      <section className={`w-full py-12 px-6 sm:px-10 lg:px-16 xl:px-20 border-y mb-24 ${
-        isDark ? 'border-slate-800 bg-[#070b1a]/90' : 'border-slate-200 bg-slate-50'
+      {/* 2. STATS STRIP (Clear, Inspiring Numbers) */}
+      <section className={`w-full py-10 px-4 sm:px-8 lg:px-12 xl:px-16 border-y mb-16 ${
+        isDark ? 'border-slate-800/80 bg-[#060916]' : 'border-slate-200 bg-white'
       }`}>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
           {stats.map((s, idx) => (
             <div key={idx} className="flex flex-col">
-              <span className="text-4xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-400 tracking-tight mb-1">
+              <span className="text-3xl sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-400 tracking-tight">
                 {s.value}
               </span>
-              <span className={`text-base font-bold mb-1 ${isDark ? 'text-white' : 'text-slate-950'}`}>
+              <span className={`text-sm sm:text-base font-bold mt-1 ${isDark ? 'text-white' : 'text-slate-950'}`}>
                 {s.label}
               </span>
-              <span className={`text-xs leading-relaxed ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+              <span className={`text-xs mt-0.5 leading-snug ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
                 {s.desc}
               </span>
             </div>
@@ -256,307 +318,270 @@ export default function AboutUsPage({
         </div>
       </section>
 
-      {/* 3. OUR STORY & THE "WHY RAXWO" MISSION */}
-      <section className="w-full px-6 sm:px-10 lg:px-16 xl:px-20 mb-28">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      {/* 3. FOUR CORE PILLARS: WHY PEOPLE CHOOSE RAXWO */}
+      <section className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 mb-20">
+        <div className="max-w-5xl mx-auto">
           
-          {/* Left Column: The Story */}
-          <div className="lg:col-span-6 space-y-5">
-            <span className={`text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full border inline-block ${
-              isDark 
-                ? 'text-cyan-400 bg-cyan-950/40 border-cyan-800/50' 
-                : 'text-blue-700 bg-blue-50 border-blue-200'
-            }`}>
-              OUR ORIGIN STORY
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <span className="text-[11px] font-extrabold uppercase tracking-widest text-blue-500 block mb-1">
+              {isSi ? 'අපගේ විශේෂත්වය' : 'WHY BUSINESSES CHOOSE US'}
             </span>
-            <h2 className={`text-3xl sm:text-4xl font-extrabold tracking-tight leading-tight ${
-              isDark ? 'text-white' : 'text-slate-950'
-            }`}>
-              Why We Rejected the SaaS Subscription Model
+            <h2 className={`text-2xl sm:text-3xl font-black tracking-tight ${isDark ? 'text-white' : 'text-slate-950'}`}>
+              {isSi ? 'Raxwo අනෙක් මෘදුකාංග වලින් වෙනස් වන්නේ ඇයි?' : 'Four Reasons Businesses Love Raxwo'}
             </h2>
-            <div className={`space-y-4 text-sm sm:text-base leading-relaxed ${
-              isDark ? 'text-slate-300' : 'text-slate-700'
-            }`}>
-              <p>
-                In 2020, we watched dozens of thriving Sri Lankan shops, pharmacies, and manufacturers get trapped by foreign SaaS ERP platforms. Business owners were paying \$150 to \$500 every single month just for user seats and basic barcode printing. When currency exchange rates shifted, their software bills tripled overnight.
-              </p>
-              <p>
-                Worse, if their internet dropped during heavy monsoon rains, cashiers couldn’t print bills, halting store operations. And if a business owner stopped paying the monthly subscription, they lost immediate access to their own customer database and sales history.
-              </p>
-              <p>
-                We decided to change that forever. We founded <strong className={isDark ? 'text-cyan-400' : 'text-blue-600'}>RAXWO</strong> on a radical premise: <em>"Software you pay for should be software you truly own."</em> We engineer complete, standalone ERP solutions that run offline, connect directly with local POS hardware, and are handed over with complete source code.
-              </p>
-            </div>
-
-            <div className="pt-2 flex flex-wrap gap-4">
-              <button
-                type="button"
-                onClick={onExploreProducts}
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl font-bold text-xs sm:text-sm text-white bg-blue-600 hover:bg-blue-500 shadow-[0_0_20px_rgba(37,99,235,0.4)] transition-all cursor-pointer hover:scale-[1.02]"
-              >
-                <span>Browse Our 18+ ERP Solutions</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
-              <button
-                type="button"
-                onClick={onContactClick}
-                className={`inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl font-semibold text-xs sm:text-sm border transition-colors cursor-pointer ${
-                  isDark 
-                    ? 'bg-slate-900/80 border-slate-700 text-slate-200 hover:text-white hover:bg-slate-800' 
-                    : 'bg-white border-slate-300 text-slate-800 hover:bg-slate-50'
-                }`}
-              >
-                <span>Talk to an ERP Consultant</span>
-              </button>
-            </div>
+            <p className={`text-xs sm:text-sm mt-2 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+              {isSi 
+                ? 'ව්‍යාපාරිකයන්ට කරදරයක් නැතිව, පහසුවෙන් භාවිත කළ හැකි සරල මෘදුකාංග නිර්මාණය කිරීම අපගේ ප්‍රතිපත්තියයි.'
+                : 'Built with honesty and real-world shop owners in mind. No monthly headaches, no confusion.'}
+            </p>
           </div>
 
-          {/* Right Column: Mission & Vision Interactive Cards */}
-          <div className="lg:col-span-6 space-y-6">
-            
-            {/* Card 1: Our Mission */}
-            <div className={`p-7 sm:p-8 rounded-3xl border transition-all ${
-              isDark 
-                ? 'bg-[#0c1228]/90 border-slate-800/90 hover:border-slate-700 shadow-xl' 
-                : 'bg-white border-slate-200 hover:border-blue-300 shadow-lg'
-            }`}>
-              <div className="w-12 h-12 rounded-2xl bg-blue-600/20 text-blue-400 flex items-center justify-center mb-4 border border-blue-500/30">
-                <TargetIcon className="w-6 h-6 text-blue-400" />
-              </div>
-              <h3 className={`text-xl font-bold mb-2 ${isDark ? 'text-white' : 'text-slate-950'}`}>
-                Our Mission
-              </h3>
-              <p className={`text-xs sm:text-sm leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-                Democratize enterprise software for SMEs and corporations across Sri Lanka and emerging markets by delivering high-performance, perpetually licensed software that eliminates predatory recurring fees.
-              </p>
-              <ul className="mt-4 space-y-2 text-xs">
-                {['Perpetual lifetime license guarantee', 'Full source code repository handover', 'Complete offline capability with cloud sync'].map((item, idx) => (
-                  <li key={idx} className={`flex items-center gap-2 ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {features.map((feat, idx) => {
+              const Icon = feat.icon;
+              return (
+                <div
+                  key={idx}
+                  className={`p-6 sm:p-7 rounded-3xl border transition-all duration-300 flex flex-col justify-between ${
+                    isDark 
+                      ? 'bg-[#0a0f24] border-slate-800 hover:border-slate-700 shadow-lg' 
+                      : 'bg-white border-slate-200 hover:border-blue-300 shadow-md'
+                  }`}
+                >
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="w-11 h-11 rounded-2xl bg-blue-500/15 border border-blue-500/30 text-blue-500 flex items-center justify-center">
+                        <Icon className="w-5 h-5" />
+                      </div>
+                      <span className={`text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full ${
+                        isDark ? 'bg-slate-800 text-slate-300' : 'bg-slate-100 text-slate-700'
+                      }`}>
+                        {feat.badge}
+                      </span>
+                    </div>
 
-            {/* Card 2: Our Vision */}
-            <div className={`p-7 sm:p-8 rounded-3xl border transition-all ${
-              isDark 
-                ? 'bg-[#0c1228]/90 border-slate-800/90 hover:border-slate-700 shadow-xl' 
-                : 'bg-white border-slate-200 hover:border-purple-300 shadow-lg'
-            }`}>
-              <div className="w-12 h-12 rounded-2xl bg-purple-600/20 text-purple-400 flex items-center justify-center mb-4 border border-purple-500/30">
-                <Sparkles className="w-6 h-6 text-purple-400" />
-              </div>
-              <h3 className={`text-xl font-bold mb-2 ${isDark ? 'text-white' : 'text-slate-950'}`}>
-                Our Vision
-              </h3>
-              <p className={`text-xs sm:text-sm leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-                To power over 10,000 retail, healthcare, manufacturing, and hospitality enterprises worldwide by 2030 with the most modular, dependable, and customizable business software suite in Asia.
-              </p>
-            </div>
+                    <h3 className={`text-base sm:text-lg font-black mb-2 ${isDark ? 'text-white' : 'text-slate-950'}`}>
+                      {feat.title}
+                    </h3>
 
+                    <p className={`text-xs sm:text-sm leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+                      {feat.desc}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
 
         </div>
       </section>
 
-      {/* 4. CORE VALUES GRID */}
-      <section className={`w-full py-20 px-6 sm:px-10 lg:px-16 xl:px-20 border-y mb-28 ${
-        isDark ? 'border-slate-800 bg-[#060a17]/90' : 'border-slate-200 bg-slate-50'
+      {/* 4. HOW IT WORKS IN 4 EASY STEPS */}
+      <section className={`w-full py-16 px-4 sm:px-8 lg:px-12 xl:px-16 border-y mb-20 ${
+        isDark ? 'border-slate-800/80 bg-[#060916]' : 'border-slate-200 bg-white'
       }`}>
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className={`text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full border inline-block mb-3 ${
-            isDark 
-              ? 'text-cyan-400 bg-cyan-950/40 border-cyan-800/50' 
-              : 'text-blue-700 bg-blue-50 border-blue-200'
-          }`}>
-            WHAT WE STAND FOR
-          </span>
-          <h2 className={`text-3xl sm:text-4xl font-extrabold tracking-tight ${
-            isDark ? 'text-white' : 'text-slate-950'
-          }`}>
-            Four Principles Behind Every Line of Code
-          </h2>
-          <p className={`text-sm sm:text-base mt-3 ${
-            isDark ? 'text-slate-400' : 'text-slate-600'
-          }`}>
-            We build software designed for durability, data privacy, and immediate commercial efficiency.
-          </p>
-        </div>
+        <div className="max-w-5xl mx-auto">
+          
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <span className="text-[11px] font-extrabold uppercase tracking-widest text-emerald-500 block mb-1">
+              {isSi ? 'සරල පියවර 4ක්' : 'HOW IT WORKS'}
+            </span>
+            <h2 className={`text-2xl sm:text-3xl font-black tracking-tight ${isDark ? 'text-white' : 'text-slate-950'}`}>
+              {isSi ? 'ඔබගේ වෙළඳසැලට පද්ධතිය සකසා දෙන සරල ක්‍රමය' : 'How We Set Up Your Store in 4 Simple Steps'}
+            </h2>
+            <p className={`text-xs sm:text-sm mt-2 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+              {isSi 
+                ? 'පද්ධතිය තෝරාගත් මොහොතේ සිට බිල්පත් ගැසීම ආරම්භ කරන තුරු සියලු දේ අප විසින්ම සකස් කර දෙනු ලැබේ.'
+                : 'From selecting your software to printing your first bill, our engineers take care of everything.'}
+            </p>
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {coreValues.map((v, idx) => {
-            const Icon = v.icon;
-            return (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {steps.map((st, idx) => (
               <div
                 key={idx}
-                className={`p-7 rounded-3xl border flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 ${
-                  isDark 
-                    ? 'bg-[#0b1024]/90 border-slate-800/90 hover:border-slate-700 shadow-lg' 
-                    : 'bg-white border-slate-200 hover:border-blue-400 shadow-md'
+                className={`p-6 rounded-2xl border transition-all flex flex-col justify-between ${
+                  isDark ? 'bg-[#0a0f24] border-slate-800' : 'bg-slate-50 border-slate-200 shadow-sm'
                 }`}
               >
                 <div>
-                  <div className="w-12 h-12 rounded-2xl bg-blue-600/15 border border-blue-500/30 flex items-center justify-center text-blue-400 mb-5">
-                    <Icon className="w-6 h-6" />
+                  <div className="w-10 h-10 rounded-xl bg-blue-600 text-white font-black text-sm flex items-center justify-center mb-4 shadow-md shadow-blue-600/30">
+                    {st.num}
                   </div>
-                  <h3 className={`text-lg font-bold mb-2.5 ${isDark ? 'text-white' : 'text-slate-950'}`}>
-                    {v.title}
+                  <h3 className={`text-sm sm:text-base font-bold mb-1.5 ${isDark ? 'text-white' : 'text-slate-950'}`}>
+                    {st.title}
                   </h3>
-                  <p className={`text-xs sm:text-sm leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-                    {v.desc}
-                  </p>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* 5. LEADERSHIP & ENGINEERING ARCHITECTS */}
-      <section className="w-full px-6 sm:px-10 lg:px-16 xl:px-20 mb-28">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className={`text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full border inline-block mb-3 ${
-            isDark 
-              ? 'text-cyan-400 bg-cyan-950/40 border-cyan-800/50' 
-              : 'text-blue-700 bg-blue-50 border-blue-200'
-          }`}>
-            LEADERSHIP &amp; ARCHITECTS
-          </span>
-          <h2 className={`text-3xl sm:text-4xl font-extrabold tracking-tight ${
-            isDark ? 'text-white' : 'text-slate-950'
-          }`}>
-            Meet the Minds Powering Raxwo
-          </h2>
-          <p className={`text-sm sm:text-base mt-3 ${
-            isDark ? 'text-slate-400' : 'text-slate-600'
-          }`}>
-            Senior systems architects, hardware engineers, and enterprise consultants dedicated to your success.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7">
-          {leadershipTeam.map((member, idx) => (
-            <div 
-              key={idx}
-              className={`rounded-3xl border overflow-hidden flex flex-col justify-between transition-all duration-300 group hover:-translate-y-1.5 ${
-                isDark 
-                  ? 'bg-[#0b1022]/90 border-slate-800/90 hover:border-slate-700 shadow-xl' 
-                  : 'bg-white border-slate-200 hover:border-blue-400 shadow-md'
-              }`}
-            >
-              {/* Photo */}
-              <div className="relative w-full h-64 overflow-hidden bg-slate-950">
-                <img 
-                  src={member.image} 
-                  alt={member.name}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
-                <div className="absolute bottom-3 left-4 right-4">
-                  <span className="text-[11px] font-bold text-cyan-400 block uppercase tracking-wider">
-                    {member.experience}
-                  </span>
-                </div>
-              </div>
-
-              {/* Details */}
-              <div className="p-5 flex-1 flex flex-col justify-between">
-                <div>
-                  <h3 className={`text-base font-bold ${isDark ? 'text-white' : 'text-slate-950'}`}>
-                    {member.name}
-                  </h3>
-                  <p className="text-xs font-semibold text-blue-500 mt-0.5 mb-2.5">
-                    {member.role}
-                  </p>
                   <p className={`text-xs leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-                    {member.bio}
+                    {st.desc}
                   </p>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+
         </div>
       </section>
 
-      {/* 6. GROWTH JOURNEY / TIMELINE */}
-      <section className={`w-full py-20 px-6 sm:px-10 lg:px-16 xl:px-20 border-y mb-28 ${
-        isDark ? 'border-slate-800 bg-[#060a17]/90' : 'border-slate-200 bg-slate-50'
-      }`}>
-        <div className="max-w-4xl mx-auto text-center mb-16">
-          <span className={`text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full border inline-block mb-3 ${
-            isDark 
-              ? 'text-cyan-400 bg-cyan-950/40 border-cyan-800/50' 
-              : 'text-blue-700 bg-blue-50 border-blue-200'
-          }`}>
-            OUR TIMELINE
-          </span>
-          <h2 className={`text-3xl sm:text-4xl font-extrabold tracking-tight ${
-            isDark ? 'text-white' : 'text-slate-950'
-          }`}>
-            The Journey of Raxwo Global
-          </h2>
-        </div>
+      {/* 5. MEET OUR FRIENDLY LEADERSHIP TEAM (Compact & Clean) */}
+      <section className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 mb-20">
+        <div className="max-w-5xl mx-auto">
+          
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <span className="text-[11px] font-extrabold uppercase tracking-widest text-indigo-500 block mb-1">
+              {isSi ? 'අපගේ කණ්ඩායම' : 'MEET THE TEAM'}
+            </span>
+            <h2 className={`text-2xl sm:text-3xl font-black tracking-tight ${isDark ? 'text-white' : 'text-slate-950'}`}>
+              {isSi ? 'ඔබට සහාය දෙන Raxwo ඉංජිනේරුවන්' : 'The People Powering Raxwo'}
+            </h2>
+            <p className={`text-xs sm:text-sm mt-2 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+              {isSi 
+                ? 'ඔබගේ ව්‍යාපාරික පද්ධති සුරක්ෂිතව සහ වේගවත්ව පවත්වාගෙන යාමට නිරන්තරයෙන් කැපවන අපේම ඉංජිනේරුවන්.'
+                : 'Dedicated software architects, UX designers, and hardware specialists who treat your business like their own.'}
+            </p>
+          </div>
 
-        <div className="max-w-4xl mx-auto space-y-6">
-          {milestones.map((m, idx) => (
-            <div 
-              key={idx}
-              className={`p-6 sm:p-7 rounded-2xl border flex flex-col sm:flex-row sm:items-center gap-5 transition-all ${
-                isDark 
-                  ? 'bg-[#0c1228]/80 border-slate-800/80 hover:border-slate-700 shadow-md' 
-                  : 'bg-white border-slate-200 hover:border-blue-300 shadow-sm'
-              }`}
-            >
-              <div className="w-16 h-16 rounded-2xl bg-blue-600 text-white font-black text-lg flex items-center justify-center shrink-0 shadow-lg shadow-blue-600/30">
-                {m.year}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {leadershipTeam.map((member, idx) => (
+              <div 
+                key={idx}
+                className={`rounded-2xl border overflow-hidden flex flex-col justify-between transition-all group ${
+                  isDark 
+                    ? 'bg-[#0a0f24] border-slate-800 hover:border-slate-700 shadow-md' 
+                    : 'bg-white border-slate-200 hover:border-blue-300 shadow-sm'
+                }`}
+              >
+                {/* Compact, clean photo (h-40) */}
+                <div className="relative w-full h-40 sm:h-44 overflow-hidden bg-slate-900">
+                  <img 
+                    src={member.image} 
+                    alt={member.name}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+                </div>
+
+                {/* Details */}
+                <div className="p-4 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h3 className={`text-sm font-bold ${isDark ? 'text-white' : 'text-slate-950'}`}>
+                      {member.name}
+                    </h3>
+                    <p className="text-xs font-semibold text-blue-500 mt-0.5 mb-1.5">
+                      {member.role}
+                    </p>
+                    <p className={`text-[11px] leading-snug ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+                      {member.focus}
+                    </p>
+                  </div>
+                </div>
               </div>
-              <div>
-                <h3 className={`text-lg font-bold mb-1 ${isDark ? 'text-white' : 'text-slate-950'}`}>
-                  {m.title}
-                </h3>
-                <p className={`text-xs sm:text-sm leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-                  {m.desc}
-                </p>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
+
         </div>
       </section>
 
-      {/* 7. BOTTOM ENTERPRISE CTA BANNER */}
-      <section className="w-full px-6 sm:px-10 lg:px-16 xl:px-20">
-        <div className={`p-8 sm:p-14 rounded-3xl border text-center max-w-5xl mx-auto shadow-2xl relative overflow-hidden ${
+      {/* 6. COMMON QUESTIONS (FAQ For Everyone) */}
+      <section className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 mb-20">
+        <div className="max-w-3xl mx-auto">
+          
+          <div className="text-center mb-8">
+            <span className="text-[11px] font-extrabold uppercase tracking-widest text-cyan-500 block mb-1">
+              {isSi ? 'නිතර අසන ප්‍රශ්න' : 'COMMON QUESTIONS'}
+            </span>
+            <h2 className={`text-2xl font-black ${isDark ? 'text-white' : 'text-slate-950'}`}>
+              {isSi ? 'ඔබට දැනගැනීමට අවශ්‍ය ප්‍රධාන කරුණු' : 'Questions Business Owners Often Ask Us'}
+            </h2>
+          </div>
+
+          <div className="space-y-3 text-xs sm:text-sm">
+            {[
+              {
+                q: isSi ? 'අපගේ පරිගණකය අක්‍රිය වුවහොත් දත්ත නැතිවෙනවාද?' : 'What if our store computer breaks down or gets stolen?',
+                a: isSi 
+                  ? 'කිසිසේත්ම නෑ. පද්ධතියේ දිනපතාම ස්වයංක්‍රීයව Backup සටහන් වන අතර, නව පරිගණකයකට විනාඩි 15ක් ඇතුළත ඔබගේ සියලු දත්ත අප විසින්ම නැවත පූරණය කර දෙනු ලැබේ.'
+                  : 'Never. Raxwo creates daily automatic local and secure backups. If your machine fails, our technicians restore all your products, sales history, and customer records onto a replacement PC in under 15 minutes.'
+              },
+              {
+                q: isSi ? 'දැනට අප ළඟ ඇති EPSON / Xprinter ප්‍රින්ටර් භාවිත කළ හැකිද?' : 'Can we use our existing EPSON / Xprinter thermal printers?',
+                a: isSi 
+                  ? 'ඔව්, ඔබ සතු ඕනෑම රිසිට්පත් මුද්‍රණ යන්ත්‍රයක්, බාර්කෝඩ් ස්කෑනරයක් හෝ මුදල් පෙට්ටියක් (Cash Drawer) Raxwo පද්ධතිය සමඟ 100% ක් පහසුවෙන්ම සම්බන්ධ කළ හැක.'
+                  : 'Yes! Raxwo is fully plug-and-play with all standard ESC/POS 58mm/80mm thermal receipt printers, USB/Bluetooth barcode readers, and automated cash drawers.'
+              },
+              {
+                q: isSi ? 'අපගේ ව්‍යාපාරයට විශේෂිත අංග (Custom Features) එකතු කරගත හැකිද?' : 'Can we request special custom features for our unique business workflow?',
+                a: isSi 
+                  ? 'ඔව්, අපගේ මෘදුකාංග නිර්මාණය කරන්නේ අපගේම ඉංජිනේරුවන් නිසා, ඔබගේ ව්‍යාපාරයට අවශ්‍ය ඕනෑම අමතර පහසුකමක් අවශ්‍ය පරිදි සාදා දීමට අපට හැකියාව ඇත.'
+                  : 'Absolutely. Because all Raxwo software is built and maintained by our own in-house Sri Lankan software team, we can tailor screens, tax rules, and reports to match your exact operation.'
+              }
+            ].map((faq, idx) => (
+              <div 
+                key={idx}
+                className={`p-5 rounded-2xl border ${
+                  isDark ? 'bg-[#0a0f24] border-slate-800' : 'bg-white border-slate-200 shadow-sm'
+                }`}
+              >
+                <div className="flex items-start gap-3">
+                  <HelpCircle className="w-4 h-4 text-blue-500 shrink-0 mt-0.5" />
+                  <div>
+                    <h3 className={`font-bold text-sm mb-1 ${isDark ? 'text-white' : 'text-slate-950'}`}>
+                      {faq.q}
+                    </h3>
+                    <p className={`leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+                      {faq.a}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* 7. WARM & FRIENDLY BOTTOM ACTION BANNER */}
+      <section className="w-full px-4 sm:px-8 lg:px-12 xl:px-16">
+        <div className={`p-8 sm:p-12 rounded-3xl border text-center max-w-4xl mx-auto shadow-2xl relative overflow-hidden ${
           isDark 
             ? 'bg-gradient-to-r from-blue-950 via-[#0d1430] to-indigo-950 border-blue-900/40 text-white' 
             : 'bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 border-slate-800 text-white'
         }`}>
-          <div className="relative z-10 max-w-2xl mx-auto">
-            <span className="text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full bg-blue-500/20 text-cyan-300 border border-blue-400/30 inline-block mb-4">
-              TAKE BACK CONTROL OF YOUR SOFTWARE
+          <div className="relative z-10 max-w-xl mx-auto">
+            <span className="text-[11px] font-extrabold tracking-widest uppercase px-3 py-1 rounded-full bg-blue-500/20 text-cyan-300 border border-blue-400/30 inline-block mb-3">
+              {isSi ? 'සජීවීව දැකබලා ගන්න' : 'SEE IT IN ACTION'}
             </span>
-            <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white mb-4">
-              Ready to Upgrade Your Company to a Raxwo ERP?
+            <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-white mb-3">
+              {isSi ? 'පද්ධතිය ක්‍රියාත්මක වන අයුරු සජීවීව බලමුද?' : 'Want to See How Simple It Really Is?'}
             </h2>
-            <p className="text-sm sm:text-base text-slate-300 mb-8 leading-relaxed">
-              Schedule a live remote or in-person demonstration with our senior systems architect. We will show you the exact system with your company’s logo and products loaded.
+            <p className="text-xs sm:text-sm text-slate-300 mb-6 leading-relaxed">
+              {isSi 
+                ? 'විනාඩි 5ක සජීවී වීඩියෝවක් WhatsApp හරහා ලබාගැනීමට හෝ කොළඹ කාර්යාලයට පැමිණ අත්හදාබැලීමට අදම අප හා සම්බන්ධ වන්න.'
+                : 'Watch a 5-minute live screen demo on WhatsApp or visit our Colombo demo room to test with your own products.'}
             </p>
 
-            <div className="flex flex-wrap items-center justify-center gap-4">
+            <div className="flex flex-wrap items-center justify-center gap-3">
               <button
                 type="button"
                 onClick={onExploreProducts}
-                className="px-8 py-3.5 rounded-2xl font-bold text-sm text-white bg-blue-600 hover:bg-blue-500 shadow-[0_0_25px_rgba(37,99,235,0.5)] transition-all cursor-pointer hover:scale-105"
+                className="px-6 py-3 rounded-xl font-bold text-xs text-white bg-blue-600 hover:bg-blue-500 shadow-md shadow-blue-600/30 transition-all cursor-pointer hover:scale-105"
               >
-                Explore ERP Solutions
+                {isSi ? 'මෘදුකාංග 14 බලන්න' : 'Explore Ready ERPs'}
               </button>
+              <a
+                href="https://wa.me/94771234567?text=Hello%20Raxwo%20Team%2C%20I%20would%20like%20to%20learn%20more%20about%20your%20software%20solutions."
+                target="_blank"
+                rel="noreferrer"
+                className="px-6 py-3 rounded-xl font-bold text-xs text-white bg-emerald-600 hover:bg-emerald-500 shadow-md shadow-emerald-600/30 transition-all cursor-pointer hover:scale-105 flex items-center gap-2"
+              >
+                <MessageSquare className="w-3.5 h-3.5" />
+                <span>{isSi ? 'WhatsApp හරහා විමසන්න' : 'Chat on WhatsApp'}</span>
+              </a>
               <button
                 type="button"
                 onClick={onContactClick}
-                className="px-8 py-3.5 rounded-2xl font-bold text-sm text-white bg-slate-800/90 hover:bg-slate-700 border border-slate-700 transition-all cursor-pointer hover:scale-105"
+                className="px-6 py-3 rounded-xl font-bold text-xs text-slate-200 hover:text-white bg-slate-800/80 hover:bg-slate-700 border border-slate-700 transition-all cursor-pointer"
               >
-                Schedule Live Demo
+                {isSi ? 'සම්බන්ධ වන්න' : 'Contact Us'}
               </button>
             </div>
           </div>
@@ -564,24 +589,5 @@ export default function AboutUsPage({
       </section>
 
     </div>
-  );
-}
-
-// Inline Target Icon Helper
-function TargetIcon(props) {
-  return (
-    <svg 
-      {...props} 
-      viewBox="0 0 24 24" 
-      fill="none" 
-      stroke="currentColor" 
-      strokeWidth="2" 
-      strokeLinecap="round" 
-      strokeLinejoin="round"
-    >
-      <circle cx="12" cy="12" r="10" />
-      <circle cx="12" cy="12" r="6" />
-      <circle cx="12" cy="12" r="2" />
-    </svg>
   );
 }
