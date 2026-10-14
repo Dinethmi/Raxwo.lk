@@ -168,11 +168,11 @@ export default function ContactUsPage({
             </span>
           </div>
 
-          <h1 className={`text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight mb-4 leading-tight ${
+          <h1 className={`text-3xl sm:text-4xl md:text-5xl lg:text-[44px] font-extrabold tracking-tight leading-[1.25] mb-4 ${
             isDark ? 'text-white' : 'text-slate-950'
           }`}>
             {lang === 'si' ? 'ඔබගේ ව්‍යාපාරයට ගැළපෙන' : "Let's Build Your"}{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-indigo-500 to-cyan-400">
+            <span className="text-[#0094ff]">
               {lang === 'si' ? 'ERP හා POS පද්ධතිය' : 'Business Software'}
             </span>
           </h1>

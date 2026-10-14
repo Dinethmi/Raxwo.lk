@@ -133,11 +133,11 @@ export default function AboutUsPage({
 
         {/* Hero Title & Mission Statement */}
         <div className="max-w-4xl">
-          <h1 className={`text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.15] mb-6 ${
+          <h1 className={`text-3xl sm:text-4xl md:text-5xl lg:text-[44px] font-extrabold tracking-tight leading-[1.25] mb-6 ${
             isDark ? 'text-white' : 'text-slate-950'
           }`}>
             Empowering Modern Businesses with{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-indigo-400 to-cyan-400">
+            <span className="text-[#0094ff]">
               Lifetime Software Ownership
             </span>
           </h1>

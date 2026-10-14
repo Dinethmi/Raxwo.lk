@@ -82,7 +82,7 @@ export default function PricingPage({
         }`}>
           CLEAR COSTS, LASTING VALUE
         </span>
-        <h1 className={`text-4xl sm:text-5xl font-extrabold tracking-tight mb-3 ${
+        <h1 className={`text-3xl sm:text-4xl md:text-5xl lg:text-[44px] font-extrabold tracking-tight leading-[1.25] mb-3 ${
           isDark ? 'text-white' : 'text-slate-900'
         }`}>
           Simple &amp; Transparent Pricing

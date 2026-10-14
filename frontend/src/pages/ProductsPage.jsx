@@ -257,7 +257,7 @@ export default function ProductsPage({
         }`}>
           {lang === 'si' ? 'RAXWO ව්‍යවසාය ERP නාමාවලිය' : lang === 'ta' ? 'RAXWO நிறுவன ERP பட்டியல்' : 'RAXWO ENTERPRISE ERP CATALOG'}
         </span>
-        <h1 className={`text-4xl sm:text-5xl font-extrabold tracking-tight mb-4 ${
+        <h1 className={`text-3xl sm:text-4xl md:text-5xl lg:text-[44px] font-extrabold tracking-tight leading-[1.25] mb-4 ${
           isDark ? 'text-white' : 'text-slate-900'
         }`}>
           {lang === 'si' ? 'අපගේ සූදානම් කළ ERP පද්ධති' : lang === 'ta' ? 'எங்கள் ஆயத்த ERP அமைப்புகள்' : 'Our Ready-Made ERP Systems'}

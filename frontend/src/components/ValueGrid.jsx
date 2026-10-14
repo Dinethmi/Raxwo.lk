@@ -51,7 +51,7 @@ export default function ValueGrid({ theme = 'dark', lang = 'en' }) {
                 {/* Rounded Cyan Icon Box */}
                 <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110 ${
                   isDark 
-                    ? 'bg-cyan-950/70 border border-cyan-800/50 text-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.2)]' 
+                    ? 'bg-cyan-950/60 border border-cyan-800/40 text-cyan-400' 
                     : 'bg-cyan-100 border border-cyan-300 text-cyan-700 shadow-sm'
                 }`}>
                   <Icon className="w-6 h-6" />

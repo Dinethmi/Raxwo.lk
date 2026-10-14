@@ -82,7 +82,7 @@ export default function ProductDetailPage({
           
           {/* App Icon & Category Tag */}
           <div className="flex items-center gap-3.5 mb-6">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-700 via-indigo-900 to-slate-900 border border-blue-500/40 flex items-center justify-center p-3 shadow-[0_0_20px_rgba(59,130,246,0.35)]">
+            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-700 via-indigo-900 to-slate-900 border border-blue-500/40 flex items-center justify-center p-3">
               <svg className="w-full h-full text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                 <rect x="5" y="2" width="14" height="20" rx="3" />
                 <path d="M12 18h.01" />

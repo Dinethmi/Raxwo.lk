@@ -152,10 +152,10 @@ export default function Navbar({
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium cursor-pointer transition-colors ${
                 isDark 
                   ? 'text-slate-300 hover:text-white hover:bg-slate-800/60' 
-                  : 'text-slate-700 hover:text-slate-900 hover:bg-slate-100 border border-slate-200'
+                  : 'text-white hover:text-white hover:bg-white/10 border border-slate-200'
               }`}
             >
-              <Globe className={`w-3.5 h-3.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`} />
+              <Globe className={`w-3.5 h-3.5 ${isDark ? 'text-slate-400' : 'text-slate-200'}`} />
               <span>{languages.find(l => l.code === currentLang)?.label || 'English'}</span>
             </button>
             {langDropdown && (
@@ -193,11 +193,11 @@ export default function Navbar({
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium cursor-pointer transition-colors ${
                 isDark 
                   ? 'text-slate-300 hover:text-white hover:bg-slate-800/60' 
-                  : 'text-slate-700 hover:text-slate-900 hover:bg-slate-100 border border-slate-200'
+                  : 'text-white hover:text-white hover:bg-white/10 border border-slate-200'
               }`}
             >
               <span>{currentCurrency}</span>
-              <ChevronDown className="w-3 h-3 text-slate-400" />
+              <ChevronDown className={`w-3 h-3 ${isDark ? 'text-slate-400' : 'text-slate-200'}`} />
             </button>
             {currencyDropdown && (
               <div className={`absolute right-0 mt-2 w-36 rounded-xl shadow-2xl py-1 z-50 ${

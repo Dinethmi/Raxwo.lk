@@ -130,21 +130,21 @@ export default function SolutionsSection({ onOpenInquiry, theme = 'dark', lang =
           {lang === 'si' ? (
             <>
               Raxwo{' '}
-              <span className="text-[#20b2f5]">
+              <span className="text-[#0094ff]">
                 ඔබගේ ව්‍යාපාරික මෙහෙයුම් නව මඟකට යොමු කරන්නේ කෙසේද
               </span>
             </>
           ) : lang === 'ta' ? (
             <>
               Raxwo{' '}
-              <span className="text-[#20b2f5]">
+              <span className="text-[#0094ff]">
                 உங்கள் செயல்பாடுகளை எவ்வாறு மாற்றுகிறது
               </span>
             </>
           ) : (
             <>
               How Raxwo{' '}
-              <span className="text-[#20b2f5]">
+              <span className="text-[#0094ff]">
                 Transforms Your Operations
               </span>
             </>
@@ -164,43 +164,43 @@ export default function SolutionsSection({ onOpenInquiry, theme = 'dark', lang =
           const iconColorThemes = [
             {
               // 1. Tri-Lingual Interface (Blue)
-              light: 'bg-blue-50 border-blue-200 text-blue-600',
-              dark: 'bg-blue-950/70 border-blue-800/50 text-blue-400 shadow-[0_0_15px_rgba(59,130,246,0.25)]',
+              light: 'bg-blue-50 border border-blue-200 text-blue-600',
+              dark: 'bg-blue-950/60 border border-blue-800/40 text-blue-400',
               hoverBorder: 'hover:border-blue-300 dark:hover:border-blue-700/60',
               hoverTitle: 'group-hover:text-blue-600 dark:group-hover:text-blue-300'
             },
             {
               // 2. Hardware Plug & Play (Emerald Green)
-              light: 'bg-emerald-50 border-emerald-200 text-emerald-600',
-              dark: 'bg-emerald-950/70 border-emerald-800/50 text-emerald-400 shadow-[0_0_15px_rgba(16,185,129,0.25)]',
+              light: 'bg-emerald-50 border border-emerald-200 text-emerald-600',
+              dark: 'bg-emerald-950/60 border border-emerald-800/40 text-emerald-400',
               hoverBorder: 'hover:border-emerald-300 dark:hover:border-emerald-700/60',
               hoverTitle: 'group-hover:text-emerald-600 dark:group-hover:text-emerald-300'
             },
             {
               // 3. Offline-First Local Sync (Cyan / Sky)
-              light: 'bg-cyan-50 border-cyan-200 text-cyan-600',
-              dark: 'bg-cyan-950/70 border-cyan-800/50 text-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.25)]',
+              light: 'bg-cyan-50 border border-cyan-200 text-cyan-600',
+              dark: 'bg-cyan-950/60 border border-cyan-800/40 text-cyan-400',
               hoverBorder: 'hover:border-cyan-300 dark:hover:border-cyan-700/60',
               hoverTitle: 'group-hover:text-cyan-600 dark:group-hover:text-cyan-300'
             },
             {
               // 4. Local Tax & Compliance (Purple / Violet)
-              light: 'bg-purple-50 border-purple-200 text-purple-600',
-              dark: 'bg-purple-950/70 border-purple-800/50 text-purple-400 shadow-[0_0_15px_rgba(168,85,247,0.25)]',
+              light: 'bg-purple-50 border border-purple-200 text-purple-600',
+              dark: 'bg-purple-950/60 border border-purple-800/40 text-purple-400',
               hoverBorder: 'hover:border-purple-300 dark:hover:border-purple-700/60',
               hoverTitle: 'group-hover:text-purple-600 dark:group-hover:text-purple-300'
             },
             {
               // 5. Cross-Platform Access (Rose / Pink)
-              light: 'bg-rose-50 border-rose-200 text-rose-600',
-              dark: 'bg-rose-950/70 border-rose-800/50 text-rose-400 shadow-[0_0_15px_rgba(244,63,94,0.25)]',
+              light: 'bg-rose-50 border border-rose-200 text-rose-600',
+              dark: 'bg-rose-950/60 border border-rose-800/40 text-rose-400',
               hoverBorder: 'hover:border-rose-300 dark:hover:border-rose-700/60',
               hoverTitle: 'group-hover:text-rose-600 dark:group-hover:text-rose-300'
             },
             {
               // 6. Full Source Code Ownership (Amber / Yellow)
-              light: 'bg-amber-50 border-amber-200 text-amber-600',
-              dark: 'bg-amber-950/70 border-amber-800/50 text-amber-400 shadow-[0_0_15px_rgba(245,158,11,0.25)]',
+              light: 'bg-amber-50 border border-amber-200 text-amber-600',
+              dark: 'bg-amber-950/60 border border-amber-800/40 text-amber-400',
               hoverBorder: 'hover:border-amber-300 dark:hover:border-amber-700/60',
               hoverTitle: 'group-hover:text-amber-600 dark:group-hover:text-amber-300'
             }

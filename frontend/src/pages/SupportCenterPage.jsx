@@ -53,7 +53,7 @@ export default function SupportCenterPage({
         <span className="text-[11px] font-bold tracking-widest text-cyan-400 uppercase mb-3 block">
           FRIENDLY, RELIABLE GUIDANCE
         </span>
-        <h1 className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-3 ${
+        <h1 className={`text-3xl sm:text-4xl md:text-5xl lg:text-[44px] font-extrabold tracking-tight leading-[1.25] mb-3 ${
           isDark ? 'text-white' : 'text-slate-900'
         }`}>
           Support Center
@@ -137,8 +137,8 @@ export default function SupportCenterPage({
               : 'bg-white border-slate-200 shadow-xl'
           }`}>
             
-            {/* Glowing Headphone Icon */}
-            <div className="w-14 h-14 mx-auto rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 mb-6 shadow-[0_0_25px_rgba(6,182,212,0.2)]">
+            {/* Headphone Icon */}
+            <div className="w-14 h-14 mx-auto rounded-2xl bg-[#0094ff]/10 border border-[#0094ff]/30 flex items-center justify-center text-[#0094ff] mb-6">
               <Headphones className="w-7 h-7" />
             </div>
 
@@ -154,7 +154,7 @@ export default function SupportCenterPage({
               <button
                 type="button"
                 onClick={() => window.open('https://wa.me/94771234567?text=Hello%20Raxwo%20Support', '_blank')}
-                className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-2xl font-semibold text-xs sm:text-sm text-white bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 shadow-[0_0_20px_rgba(99,102,241,0.3)] cursor-pointer transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+                className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-2xl font-semibold text-xs sm:text-sm text-white bg-[#0094ff] hover:bg-[#0080dd] shadow-md cursor-pointer transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
               >
                 <MessageCircle className="w-4 h-4" />
                 <span>Chat on WhatsApp</span>
