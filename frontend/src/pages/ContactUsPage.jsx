@@ -212,7 +212,7 @@ export default function ContactUsPage({
 
       {/* 2. FOUR HIGH-VISIBILITY DIRECT CHANNELS (With Copy & Call Actions) */}
       <section className="w-full px-4 sm:px-8 lg:px-16 xl:px-20 mb-14">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           
           {/* Channel 1: WhatsApp Hotline */}
           <div className={`p-6 rounded-3xl border transition-all duration-300 group flex flex-col justify-between ${
@@ -396,11 +396,11 @@ export default function ContactUsPage({
       </section>
 
       {/* 3. MAIN INTERACTIVE FORM + EMBEDDED GOOGLE MAP SHOWCASE */}
-      <section className="w-full px-4 sm:px-8 lg:px-16 xl:px-20 mb-20">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+      <section className="w-full px-4 sm:px-8 lg:px-16 xl:px-20 mb-20 overflow-hidden">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
           
           {/* LEFT: INTERACTIVE CONSULTATION & DEMO BOOKING FORM (7 Cols) */}
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-7 w-full min-w-0">
             <div className={`p-6 sm:p-9 rounded-3xl border shadow-2xl transition-all ${
               isDark 
                 ? 'bg-[#0a0f24]/95 border-slate-800/90' 
@@ -711,7 +711,7 @@ export default function ContactUsPage({
           </div>
 
           {/* RIGHT: COLOMBO TECH TOWER + EMBEDDED GOOGLE MAP + GUARANTEES (5 Cols) */}
-          <div className="lg:col-span-5 space-y-6">
+          <div className="lg:col-span-5 w-full min-w-0 space-y-6">
             
             {/* Interactive Embedded Google Map Card */}
             <div className={`rounded-3xl border overflow-hidden shadow-2xl transition-all ${
@@ -846,7 +846,7 @@ export default function ContactUsPage({
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {[
             {
               province: 'Western Province',
