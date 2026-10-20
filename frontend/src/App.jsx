@@ -165,6 +165,34 @@ export default function App() {
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
+  // Scroll reveal animation observer
+  useEffect(() => {
+    if (typeof window === 'undefined' || !('IntersectionObserver' in window)) return;
+    
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -40px 0px'
+      }
+    );
+
+    // Initial check and observation
+    const elements = document.querySelectorAll('.reveal-on-scroll');
+    elements.forEach((el) => observer.observe(el));
+
+    return () => {
+      elements.forEach((el) => observer.unobserve(el));
+      observer.disconnect();
+    };
+  }, [currentRoute]);
+
   const handleRouteChange = (newRoute) => {
     // If attempting to enter admin without permission, redirect to login
     if (newRoute === 'admin' && (!currentUser || (currentUser.role !== 'super_admin' && currentUser.role !== 'sales_admin'))) {
@@ -493,12 +521,7 @@ export default function App() {
             backgroundPosition: '0 0, 18px 18px'
           }}
         />
-        <div className={`absolute top-0 left-1/4 w-[600px] h-[450px] rounded-full blur-[140px] ${
-          isDark ? 'bg-indigo-600/12' : 'bg-blue-300/25'
-        }`} />
-        <div className={`absolute top-1/3 right-1/4 w-[500px] h-[400px] rounded-full blur-[140px] ${
-          isDark ? 'bg-cyan-500/10' : 'bg-cyan-200/30'
-        }`} />
+
       </div>
 
       <div className="relative z-10 flex flex-col min-h-screen">
@@ -530,31 +553,37 @@ export default function App() {
           {/* 1. HOME ROUTE */}
           {currentRoute === 'home' && (
             <>
-              <Hero 
-                onExploreClick={() => handleRouteChange('products')}
-                onOpenSaleModal={() => setIsNewSaleModalOpen(true)}
-                stats={stats}
-                products={products}
-                onSelectProduct={handleSelectProduct}
-                theme={theme}
-                lang={lang}
-              />
-              <ValueGrid theme={theme} lang={lang} />
-              <div id="solutions">
+              <div className="reveal-on-scroll">
+                <Hero 
+                  onExploreClick={() => handleRouteChange('products')}
+                  onOpenSaleModal={() => setIsNewSaleModalOpen(true)}
+                  stats={stats}
+                  products={products}
+                  onSelectProduct={handleSelectProduct}
+                  theme={theme}
+                  lang={lang}
+                />
+              </div>
+              <div className="reveal-on-scroll">
+                <ValueGrid theme={theme} lang={lang} />
+              </div>
+              <div id="solutions" className="reveal-on-scroll">
                 <SolutionsSection 
                   onExploreClick={() => handleRouteChange('products')} 
                   theme={theme}
                   lang={lang}
                 />
               </div>
-              <ContactSection 
-                onSubmitInquiry={handleSubmitInquiry}
-                isSubmitting={isSubmitting}
-                contactSuccess={contactSuccess}
-                inquiryResult={inquiryResult}
-                theme={theme}
-                lang={lang}
-              />
+              <div className="reveal-on-scroll">
+                <ContactSection 
+                  onSubmitInquiry={handleSubmitInquiry}
+                  isSubmitting={isSubmitting}
+                  contactSuccess={contactSuccess}
+                  inquiryResult={inquiryResult}
+                  theme={theme}
+                  lang={lang}
+                />
+              </div>
             </>
           )}
 
@@ -783,18 +812,7 @@ export default function App() {
         isSubmitting={isSubmitting}
       />
 
-      {/* Floating WhatsApp Action Button (matches bottom-right in design) */}
-      <a
-        href="https://wa.me/94771234567?text=Hi%20Raxwo%20Team%2C%20I%20am%20interested%20in%20your%20software%20solutions."
-        target="_blank"
-        rel="noopener noreferrer"
-        title="Chat with us on WhatsApp"
-        className="fixed bottom-6 right-6 z-40 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all cursor-pointer shadow-emerald-500/30"
-      >
-        <svg className="w-6 h-6 sm:w-7 sm:h-7 fill-current" viewBox="0 0 24 24">
-          <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.35.491 1.199.534 1.286.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.174.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086.159.058 1.011.477 1.184.564.173.086.289.13.332.202.043.072.043.419-.101.824z" />
-        </svg>
-      </a>
+
 
       {/* Floating Real-Time Toast Notification */}
       {toastMessage && (

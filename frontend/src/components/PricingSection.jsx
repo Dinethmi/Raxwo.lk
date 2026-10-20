@@ -171,7 +171,7 @@ export default function PricingSection({ currency = 'LKR', currencyRates, onOpen
               onClick={() => onOpenInquiry({ name: plan.name, price: plan.priceLKR })}
               className={`w-full py-3.5 rounded-2xl font-semibold text-sm transition-all duration-200 ${
                 plan.popular
-                  ? 'bg-blue-600 hover:bg-blue-500 text-white shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:scale-[1.02] cursor-pointer'
+                  ? 'bg-blue-600 hover:bg-blue-500 text-white shadow-md hover:scale-[1.02] cursor-pointer'
                   : isDark 
                     ? 'bg-slate-800 hover:bg-slate-700 text-white border border-slate-700/60 cursor-pointer' 
                     : 'bg-slate-900 hover:bg-slate-800 text-white shadow-md cursor-pointer'

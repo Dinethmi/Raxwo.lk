@@ -255,7 +255,7 @@ export default function ProductsSection({
                     </button>
                     <button
                       onClick={() => onOpenInquiry(erp)}
-                      className="w-full py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-xs font-semibold text-white transition-all shadow-[0_0_12px_rgba(37,99,235,0.3)] cursor-pointer"
+                      className="w-full py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-xs font-semibold text-white transition-all shadow-sm cursor-pointer"
                     >
                       Get Solution
                     </button>

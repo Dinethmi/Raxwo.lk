@@ -109,12 +109,11 @@ export default function SolutionsSection({ onOpenInquiry, theme = 'dark', lang =
   ];
 
   return (
-    <section id="solutions" className={`relative w-full py-20 px-6 sm:px-10 lg:px-16 xl:px-20 border-t ${
-      isDark ? 'border-slate-800/60' : 'border-slate-200'
+    <section id="solutions" className={`relative w-full py-20 px-6 sm:px-10 lg:px-16 xl:px-20 border-t transition-colors duration-300 ${
+      isDark ? 'border-slate-800/60 bg-[#0c1024]/50' : 'border-slate-200 bg-[#f8fafc]'
     }`}>
       
-      {/* Background radial glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
 
       <div className="text-center max-w-3xl mx-auto mb-16">
         <span className={`text-xs font-bold tracking-wider uppercase px-3.5 py-1.5 rounded-full mb-3 inline-block ${

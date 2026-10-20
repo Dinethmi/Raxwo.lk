@@ -97,7 +97,7 @@ export default function HeroDashboardMockup({
               {/* + New Sale Button (Interactive!) */}
               <button
                 onClick={onNewSaleClick}
-                className="group flex items-center gap-1.5 px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold shadow-[0_0_18px_rgba(37,99,235,0.4)] transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer"
+                className="group flex items-center gap-1.5 px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold shadow-sm transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer"
                 title="Click to simulate recording a live transaction"
               >
                 <Plus className="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-90" />

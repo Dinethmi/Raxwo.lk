@@ -32,26 +32,13 @@ export default function ContactSection({
       isDark ? 'border-slate-800/80 bg-[#080b18]' : 'border-slate-200 bg-slate-50/70'
     }`}>
       
-      {/* Background ambient radial lights */}
-      <div className={`absolute -bottom-20 left-10 w-96 h-96 rounded-full blur-3xl pointer-events-none ${
-        isDark ? 'bg-cyan-500/10' : 'bg-blue-200/40'
-      }`}></div>
-      <div className={`absolute -top-20 right-10 w-96 h-96 rounded-full blur-3xl pointer-events-none ${
-        isDark ? 'bg-indigo-500/10' : 'bg-cyan-200/30'
-      }`}></div>
+
 
       {/* Main Centered Container with strict responsive bounds */}
       <div className="relative z-10 max-w-6xl mx-auto w-full">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-14">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold mb-3.5 border shadow-sm backdrop-blur-md bg-emerald-500/10 text-emerald-500 border-emerald-500/30">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span>
-              {lang === 'si' ? 'ශ්‍රී ලාංකීය ඉංජිනේරු මධ්‍යස්ථානය' : lang === 'ta' ? 'இலங்கை தொழில்நுட்பக் குழு' : 'SRI LANKAN TECH DESK ONLINE'}
-            </span>
-          </div>
-
           <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight ${
             isDark ? 'text-white' : 'text-slate-950'
           }`}>
@@ -325,7 +312,7 @@ export default function ContactSection({
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-4 rounded-2xl font-black text-sm text-white bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 hover:from-blue-500 hover:to-indigo-500 shadow-[0_0_20px_rgba(37,99,235,0.4)] transition-all flex items-center justify-center gap-2 hover:scale-[1.01] active:scale-[0.99] disabled:opacity-50 cursor-pointer"
+                    className="w-full py-4 rounded-2xl font-black text-sm text-white bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 hover:from-blue-500 hover:to-indigo-500 shadow-md transition-all flex items-center justify-center gap-2 hover:scale-[1.01] active:scale-[0.99] disabled:opacity-50 cursor-pointer"
                   >
                     {isSubmitting ? (
                       <Clock className="w-4 h-4 animate-spin" />

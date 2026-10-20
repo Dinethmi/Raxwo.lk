@@ -151,23 +151,10 @@ export default function ContactUsPage({
   return (
     <div className={`w-full pt-6 pb-28 transition-colors ${isDark ? 'text-white' : 'text-slate-900'}`}>
       
-      {/* 1. HERO HEADER WITH LIVE STATUS */}
-      <section className="w-full px-4 sm:px-8 lg:px-16 xl:px-20 mb-12">
+      {/* 1. HERO HEADER */}
+      <section className="w-full px-4 sm:px-8 lg:px-16 xl:px-20 mb-12 reveal-on-scroll">
         <div className="max-w-4xl mx-auto text-center">
           
-          {/* Live Online Badge */}
-          <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full text-xs font-bold mb-5 border shadow-sm backdrop-blur-md bg-emerald-500/10 text-emerald-400 border-emerald-500/30">
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-            </span>
-            <span>
-              {lang === 'si' 
-                ? '🟢 සජීවීව ක්‍රියාත්මකයි • කොළඹ තාක්ෂණික කණ්ඩායම සූදානම් • විනාඩි 15කින් ප්‍රතිචාර' 
-                : '🟢 Sri Lankan Tech Desk Online • Live Engineering Lab • Response < 15 Mins'}
-            </span>
-          </div>
-
           <h1 className={`text-3xl sm:text-4xl md:text-5xl lg:text-[44px] font-extrabold tracking-tight leading-[1.25] mb-4 ${
             isDark ? 'text-white' : 'text-slate-950'
           }`}>
@@ -211,7 +198,7 @@ export default function ContactUsPage({
       </section>
 
       {/* 2. FOUR HIGH-VISIBILITY DIRECT CHANNELS (With Copy & Call Actions) */}
-      <section className="w-full px-4 sm:px-8 lg:px-16 xl:px-20 mb-14">
+      <section className="w-full px-4 sm:px-8 lg:px-16 xl:px-20 mb-14 reveal-on-scroll">
         <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           
           {/* Channel 1: WhatsApp Hotline */}
@@ -222,8 +209,10 @@ export default function ContactUsPage({
           }`}>
             <div>
               <div className="flex items-center justify-between mb-4">
-                <div className="w-12 h-12 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform">
-                  <MessageSquare className="w-6 h-6" />
+                <div className="w-12 h-12 rounded-2xl bg-[#25D366]/15 border border-[#25D366]/30 flex items-center justify-center text-[#25D366] group-hover:scale-110 transition-transform">
+                  <svg className="w-6 h-6 fill-[#25D366]" viewBox="0 0 16 16">
+                    <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+                  </svg>
                 </div>
                 <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
@@ -236,11 +225,11 @@ export default function ContactUsPage({
               <p className={`text-xs mt-1 leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
                 Instant chat with our software engineers. Get quick screenshots, quotes, and video demos.
               </p>
-              <div className="mt-3 font-mono font-bold text-sm text-emerald-500 flex items-center justify-between">
-                <span>+94 77 123 4567</span>
+              <div className="mt-3 font-mono font-bold text-sm text-[#25D366] flex items-center justify-between">
+                <span>+94 74 357 3333</span>
                 <button
                   type="button"
-                  onClick={() => handleCopy('+94771234567', 'whatsapp')}
+                  onClick={() => handleCopy('+94743573333', 'whatsapp')}
                   className="text-slate-400 hover:text-emerald-400 transition-colors cursor-pointer p-1"
                   title="Copy Number"
                 >
@@ -250,10 +239,10 @@ export default function ContactUsPage({
             </div>
             
             <a
-              href="https://wa.me/94771234567?text=Hello%20Raxwo%20Team%2C%20I%20would%20like%20to%20get%20a%20live%20demo%20and%20quotation%20for%20my%20business."
+              href="https://wa.me/94743573333?text=Hello%20Raxwo%20Team%2C%20I%20would%20like%20to%20get%20a%20live%20demo%20and%20quotation%20for%20my%20business."
               target="_blank"
               rel="noreferrer"
-              className="mt-5 w-full py-2.5 px-4 rounded-xl text-xs font-bold text-center bg-emerald-600 hover:bg-emerald-500 text-white shadow-md shadow-emerald-600/30 transition-all flex items-center justify-center gap-2 cursor-pointer"
+              className="mt-5 w-full py-2.5 px-4 rounded-xl text-xs font-bold text-center bg-[#25D366] hover:bg-[#20ba59] text-white shadow-sm transition-all flex items-center justify-center gap-2 cursor-pointer"
             >
               <span>Chat on WhatsApp</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -396,7 +385,7 @@ export default function ContactUsPage({
       </section>
 
       {/* 3. MAIN INTERACTIVE FORM + EMBEDDED GOOGLE MAP SHOWCASE */}
-      <section className="w-full px-4 sm:px-8 lg:px-16 xl:px-20 mb-20 overflow-hidden">
+      <section className="w-full px-4 sm:px-8 lg:px-16 xl:px-20 mb-20 overflow-hidden reveal-on-scroll">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
           
           {/* LEFT: INTERACTIVE CONSULTATION & DEMO BOOKING FORM (7 Cols) */}
@@ -959,7 +948,7 @@ export default function ContactUsPage({
       </section>
 
       {/* 6. BOTTOM PROMPT STRIP (WhatsApp Quick Action) */}
-      <section className="w-full px-4 sm:px-8 lg:px-16 xl:px-20">
+      <section className="w-full px-4 sm:px-8 lg:px-16 xl:px-20 reveal-on-scroll">
         <div className={`max-w-4xl mx-auto p-6 sm:p-8 rounded-3xl border shadow-xl flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left ${
           isDark 
             ? 'bg-gradient-to-r from-blue-950/40 via-indigo-950/40 to-cyan-950/40 border-slate-800' 
@@ -975,12 +964,14 @@ export default function ContactUsPage({
           </div>
 
           <a
-            href="https://wa.me/94771234567?text=Hello%20Raxwo%20Team%2C%20can%20I%20see%20a%20quick%205-minute%20live%20demo%20of%20your%20POS%20system%3F"
+            href="https://wa.me/94743573333?text=Hello%20Raxwo%20Team%2C%20can%20I%20see%20a%20quick%205-minute%20live%20demo%20of%20your%20POS%20system%3F"
             target="_blank"
             rel="noreferrer"
-            className="shrink-0 px-6 py-3.5 rounded-2xl text-xs font-black text-white bg-emerald-600 hover:bg-emerald-500 shadow-lg shadow-emerald-600/30 transition-all flex items-center gap-2 cursor-pointer"
+            className="shrink-0 px-6 py-3.5 rounded-2xl text-xs font-black text-white bg-[#25D366] hover:bg-[#20ba59] shadow-sm transition-all flex items-center gap-2 cursor-pointer"
           >
-            <MessageSquare className="w-4 h-4" />
+            <svg className="w-4 h-4 fill-white" viewBox="0 0 16 16">
+              <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+            </svg>
             <span>Chat on WhatsApp Now</span>
           </a>
         </div>

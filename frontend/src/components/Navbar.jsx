@@ -124,8 +124,8 @@ export default function Navbar({
             title={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold cursor-pointer transition-all duration-300 border ${
               isDark 
-                ? 'bg-slate-900/90 text-amber-300 hover:bg-slate-800 border-slate-700/80 shadow-[0_0_12px_rgba(251,191,36,0.15)]' 
-                : 'bg-white text-slate-800 hover:bg-slate-100 border-slate-300 shadow-md'
+                ? 'bg-slate-900/90 text-amber-300 hover:bg-slate-800 border-slate-700/80 shadow-sm' 
+                : 'bg-white text-slate-800 hover:bg-slate-100 border-slate-300 shadow-sm'
             }`}
           >
             {isDark ? (

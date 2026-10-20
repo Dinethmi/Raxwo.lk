@@ -156,7 +156,7 @@ export default function AboutUsPage({
     }`}>
       
       {/* 1. TOP HERO SECTION */}
-      <section className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 mb-12 sm:mb-16">
+      <section className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 mb-12 sm:mb-16 reveal-on-scroll">
         <div className="max-w-5xl mx-auto text-center">
           
           {/* Pill Tag */}
@@ -172,7 +172,7 @@ export default function AboutUsPage({
             isDark ? 'text-white' : 'text-slate-950'
           }`}>
             {isSi ? 'ඔබගේ ව්‍යාපාරයට සරල හා විශ්වාසනීය' : 'Simple, Reliable Software That You'}{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-indigo-500 to-cyan-400">
+            <span className="text-[#0094ff]">
               {isSi ? 'එක්වරක් පමණක් ගෙවන මෘදුකාංග' : 'Truly Own Forever'}
             </span>
           </h1>
@@ -298,13 +298,13 @@ export default function AboutUsPage({
       </section>
 
       {/* 2. STATS STRIP (Clear, Inspiring Numbers) */}
-      <section className={`w-full py-10 px-4 sm:px-8 lg:px-12 xl:px-16 border-y mb-16 ${
+      <section className={`w-full py-10 px-4 sm:px-8 lg:px-12 xl:px-16 border-y mb-16 reveal-on-scroll ${
         isDark ? 'border-slate-800/80 bg-[#060916]' : 'border-slate-200 bg-white'
       }`}>
         <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
           {stats.map((s, idx) => (
             <div key={idx} className="flex flex-col">
-              <span className="text-3xl sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-400 tracking-tight">
+              <span className="text-3xl sm:text-4xl font-black text-[#0094ff] tracking-tight">
                 {s.value}
               </span>
               <span className={`text-sm sm:text-base font-bold mt-1 ${isDark ? 'text-white' : 'text-slate-950'}`}>
@@ -319,7 +319,7 @@ export default function AboutUsPage({
       </section>
 
       {/* 3. FOUR CORE PILLARS: WHY PEOPLE CHOOSE RAXWO */}
-      <section className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 mb-20">
+      <section className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 mb-20 reveal-on-scroll">
         <div className="max-w-5xl mx-auto">
           
           <div className="text-center max-w-2xl mx-auto mb-12">
@@ -377,7 +377,7 @@ export default function AboutUsPage({
       </section>
 
       {/* 4. HOW IT WORKS IN 4 EASY STEPS */}
-      <section className={`w-full py-16 px-4 sm:px-8 lg:px-12 xl:px-16 border-y mb-20 ${
+      <section className={`w-full py-16 px-4 sm:px-8 lg:px-12 xl:px-16 border-y mb-20 reveal-on-scroll ${
         isDark ? 'border-slate-800/80 bg-[#060916]' : 'border-slate-200 bg-white'
       }`}>
         <div className="max-w-5xl mx-auto">
@@ -540,7 +540,7 @@ export default function AboutUsPage({
       </section>
 
       {/* 7. WARM & FRIENDLY BOTTOM ACTION BANNER */}
-      <section className="w-full px-4 sm:px-8 lg:px-12 xl:px-16">
+      <section className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 reveal-on-scroll">
         <div className={`p-8 sm:p-12 rounded-3xl border text-center max-w-4xl mx-auto shadow-2xl relative overflow-hidden ${
           isDark 
             ? 'bg-gradient-to-r from-blue-950 via-[#0d1430] to-indigo-950 border-blue-900/40 text-white' 
@@ -563,17 +563,19 @@ export default function AboutUsPage({
               <button
                 type="button"
                 onClick={onExploreProducts}
-                className="px-6 py-3 rounded-xl font-bold text-xs text-white bg-blue-600 hover:bg-blue-500 shadow-md shadow-blue-600/30 transition-all cursor-pointer hover:scale-105"
+                className="px-6 py-3 rounded-xl font-bold text-xs text-white bg-blue-600 hover:bg-blue-500 shadow-sm transition-all cursor-pointer hover:scale-105"
               >
                 {isSi ? 'මෘදුකාංග 14 බලන්න' : 'Explore Ready ERPs'}
               </button>
               <a
-                href="https://wa.me/94771234567?text=Hello%20Raxwo%20Team%2C%20I%20would%20like%20to%20learn%20more%20about%20your%20software%20solutions."
+                href="https://wa.me/94743573333?text=Hello%20Raxwo%20Team%2C%20I%20would%20like%20to%20learn%20more%20about%20your%20software%20solutions."
                 target="_blank"
                 rel="noreferrer"
-                className="px-6 py-3 rounded-xl font-bold text-xs text-white bg-emerald-600 hover:bg-emerald-500 shadow-md shadow-emerald-600/30 transition-all cursor-pointer hover:scale-105 flex items-center gap-2"
+                className="px-6 py-3 rounded-xl font-bold text-xs text-white bg-[#25D366] hover:bg-[#20ba59] shadow-sm transition-all cursor-pointer hover:scale-105 flex items-center gap-2"
               >
-                <MessageSquare className="w-3.5 h-3.5" />
+                <svg className="w-3.5 h-3.5 fill-white" viewBox="0 0 16 16">
+                  <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+                </svg>
                 <span>{isSi ? 'WhatsApp හරහා විමසන්න' : 'Chat on WhatsApp'}</span>
               </a>
               <button
